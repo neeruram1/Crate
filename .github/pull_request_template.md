@@ -9,10 +9,7 @@
 ### Description
 *
 
-### Files modified:
-- [ ] web/src/....
-- [ ] 
-- [ ] Other files:
+
 ### How should this be manually tested?
 *
 
