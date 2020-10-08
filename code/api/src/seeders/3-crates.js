@@ -46,3 +46,6 @@ module.exports = {
     return queryInterface.bulkDelete('crates', null, {});
   }
 }
+
+//Annotation:
+//This is the seed file for the crates model. It's seeding the database with crate data.

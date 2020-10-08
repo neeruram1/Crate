@@ -30,3 +30,6 @@ module.exports = {
     return queryInterface.bulkDelete('users', null, {});
   }
 }
+
+//Annotation:
+//This is the seed file for the user model. It's seeding the database with user data.

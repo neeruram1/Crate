@@ -92,3 +92,6 @@ module.exports = {
     return queryInterface.bulkDelete('products', null, {});
   }
 }
+
+//Annotation:
+//This is the seed file for the products model. It's seeding the database with product data. 
