@@ -23,3 +23,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 }
+
+//Annotation:
+//This file is defining our product model. The product model has attributes of name, slug, description, type, gender, and image. 
