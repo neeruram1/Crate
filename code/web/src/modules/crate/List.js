@@ -15,6 +15,9 @@ import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
 import CrateItem from './Item'
 
+/*
+This is the wrapper basically for the crates area
+*/
 // Component
 class List extends PureComponent {
 
@@ -23,11 +26,23 @@ class List extends PureComponent {
     return store.dispatch(getCratesList('ASC'))
   }
 
+  /*
+   Here is where the action getList is called notes on that can be found in the actions file
+   */
   // Runs on client only
   componentDidMount() {
     this.props.getCratesList('ASC')
   }
 
+  /**
+   This is the render that includes
+   A Helmet which is the SEO element that styles the tab
+   Then there is Grid that contains the information on the inner Header
+   Grid Cell is a stylized div to go within the other Grid that has the its own styles
+   Then we have another grid that has loading wait
+   After load and if there are crates to populate the crates are maped through to make the Items Components
+   The CrateItem takes in the property of the individual crate
+   */
   render() {
     return (
       <div>
@@ -51,14 +66,14 @@ class List extends PureComponent {
           <GridCell>
             {
               this.props.crates.isLoading
-                ? <Loading/>
+                ? <Loading />
                 : this.props.crates.list.length > 0
-                    ? this.props.crates.list.map(crate => (
-                      <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
-                        <CrateItem crate={crate}/>
-                      </div>
-                    ))
-                    : <EmptyMessage message="No crates to show" />
+                  ? this.props.crates.list.map(crate => (
+                    <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
+                      <CrateItem crate={crate} />
+                    </div>
+                  ))
+                  : <EmptyMessage message="No crates to show" />
             }
           </GridCell>
         </Grid>
@@ -80,4 +95,9 @@ function listState(state) {
   }
 }
 
+
+/*
+From the store we get the crates as a whole
+we also get the dispatch of getCratesList which is used in the mount
+*/
 export default connect(listState, { getCratesList })(List)

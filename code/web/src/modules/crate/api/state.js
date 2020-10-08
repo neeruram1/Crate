@@ -19,6 +19,11 @@ const cratesInitialState = {
   list: []
 }
 
+/**
+ A overview of this is that the reducer her has the different type cases
+ When the response does come through the list error and isloading properites are changed in the store
+ This is logic we will likely use in creating our survey and getting the images if we go that route
+ */
 // State
 export const crates = (state = cratesInitialState, action) => {
   switch (action.type) {

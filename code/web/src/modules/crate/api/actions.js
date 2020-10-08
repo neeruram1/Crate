@@ -5,6 +5,9 @@ import { query, mutation } from 'gql-query-builder'
 // App Imports
 import { routeApi } from '../../../setup/routes'
 
+/**
+ exports the actions to be used in the state.js file
+ */
 // Actions Types
 export const CRATES_GET_LIST_REQUEST = 'CRATES/GET_LIST_REQUEST'
 export const CRATES_GET_LIST_RESPONSE = 'CRATES/GET_LIST_RESPONSE'
@@ -15,6 +18,19 @@ export const CRATES_GET_FAILURE = 'CRATES/GET_FAILURE'
 
 // Actions
 
+/*
+getList is called when the crates page is loading
+It functions less like a traditional action that would take in variables and create an object that would be picked up by the reducer
+Instead it is a function itself that creates multiple dispatches within and forgoes the minute actions
+It builds the objects for the reducer when the different dispatches are called.
+In this one it starts by dispatching with a type of 'CRATES_GET_LIST_REQUEST'
+This simply changes the state of isLoading
+next a post request is made with axios to the route API
+INFO ON THE QUERY PART GOES HERE
+Using the repose a dispatch for a good reponse or error is gathered and explained further in the state file
+The good response passes with it a key value of list and the crates from the data
+We will want to mimic this type of logic for our survey request and changes to style
+*/
 // Get list of crates
 export function getList(orderBy = 'DESC', isLoading = true) {
   return dispatch => {
