@@ -23,3 +23,6 @@ module.exports = function(sequelize, DataTypes) {
 
   return User
 }
+
+//Annotation:
+//This file is defining our user model. The user model has attributes of name, email, password, and role. It has a 'has many' relationship with the subscription model. 
