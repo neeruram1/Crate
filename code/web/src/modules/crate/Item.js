@@ -28,6 +28,14 @@ class Item extends PureComponent {
     }
   }
 
+  /*
+  onClickSubscibe is fired when a subscibe buton of the crate card is clicked
+  It has a few loading messages that are used to have seemless UX
+  the main part of it is calling the create action from the props state
+  This changes the users object on the backend adding that to the subscirptions
+  There is error handling for the axios call and then a push to the history
+  The push to history is a little confusing but i think changes the page to the user subsription page
+  */
   onClickSubscribe = (crateId) => {
     this.setState({
       isLoading: true
@@ -59,6 +67,14 @@ class Item extends PureComponent {
       })
   }
 
+  /*
+  This creates the individual card getting the crate information from the props
+  The return is a Card which is found in the ui folder as a basic layout with styling
+  Inside the card we have the image of the crate that iss found on the APP_URL
+  Then an H4 which is another prestyled component with the name of the crate
+  a paragraph of the description
+  and a Button component from the ui folder that has a binded onClickSubscribe as the component is built elsewhere
+  */
   render() {
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
@@ -66,7 +82,7 @@ class Item extends PureComponent {
     return (
       <Card style={{ width: '18em', backgroundColor: white }}>
         <p style={{ padding: '2em 3em 0 3em' }}>
-          <img src={`${ APP_URL }/images/crate.png`} alt={name} style={{ width: '100%' }}/>
+          <img src={`${APP_URL}/images/crate.png`} alt={name} style={{ width: '100%' }} />
         </p>
 
         <div style={{ padding: '1em 1.2em' }}>
@@ -79,7 +95,7 @@ class Item extends PureComponent {
               theme="primary"
               onClick={this.onClickSubscribe.bind(this, id)}
               type="button"
-              disabled={ isLoading }
+              disabled={isLoading}
             >
               <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
             </Button>
@@ -105,4 +121,8 @@ function itemState(state) {
   }
 }
 
+/*
+From our store we have gotten the user to add the subscription to and three functions(dispatches)
+The dispatches are used in onClickSubscribe
+*/
 export default connect(itemState, { create, messageShow, messageHide })(withRouter(Item))
