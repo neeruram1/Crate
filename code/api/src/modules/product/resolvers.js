@@ -97,3 +97,6 @@ export async function remove(parentValue, { id }, { auth }) {
 export async function getTypes() {
   return Object.values(params.product.types)
 }
+
+//Annotations:
+//I think that this file is contains our resolver functions for a product. I think that the resolver is taking in arguments from the GraphQL queries and mutations and these functions are actually interacting with the database, fetching the appropriate data and returning a response. 
