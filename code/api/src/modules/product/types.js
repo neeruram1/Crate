@@ -31,3 +31,6 @@ const ProductTypesType = new GraphQLObjectType({
 })
 
 export { ProductType, ProductTypesType }
+
+//Annotation:
+//This file defines product as a GraphQL object. It needs to be defined here as a GraphQL object in addition to being defined in our database in order to perform GraphQL queries on it as well as being able to reference it in our database.
