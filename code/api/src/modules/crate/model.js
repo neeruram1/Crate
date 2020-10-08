@@ -16,3 +16,6 @@ module.exports = function(sequelize, DataTypes) {
 
   return Crate
 }
+
+//Annotation:
+//This file is defining our crate model. The crate model has a name and description attribute and has a 'has many' relationship with the subscription model. 
