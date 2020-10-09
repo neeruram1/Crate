@@ -1,6 +1,6 @@
 // Imports
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 // Component
 const Grid = (props) => {
@@ -16,17 +16,17 @@ const Grid = (props) => {
 
     gutter,
     ...others
-  } = props
+  } = props;
 
   const GridCells = React.Children.map(children, (GridCell) => {
     if (!GridCell) {
-      return null
+      return null;
     }
     if (GridCell.props) {
-      return React.cloneElement(GridCell, { gutter })
+      return React.cloneElement(GridCell, { gutter });
     }
-    return GridCell
-  })
+    return GridCell;
+  });
 
   return (
     <div {...others}>
@@ -39,19 +39,19 @@ const Grid = (props) => {
           flex-flow: row;
           flex-wrap: wrap;
 
-          ${ justifyRight ? 'justify-content: flex-end;' : '' }
-          ${ justifyCenter ? 'justify-content: center;' : '' }
+          ${justifyRight ? "justify-content: flex-end;" : ""}
+          ${justifyCenter ? "justify-content: center;" : ""}
 
-          ${ alignTop ? 'align-items: flex-start;' : '' }
-          ${ alignBottom ? 'align-items: flex-end;' : '' }
-          ${ alignCenter ? 'align-items: center;' : '' }
+          ${alignTop ? "align-items: flex-start;" : ""}
+          ${alignBottom ? "align-items: flex-end;" : ""}
+          ${alignCenter ? "align-items: center;" : ""}
 
-          ${ gutter ? 'margin-left: -1em;' : 'margin-left: 0;' }
+          ${gutter ? "margin-left: -1em;" : "margin-left: 0;"}
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
 // Component Properties
 Grid.propTypes = {
@@ -63,7 +63,7 @@ Grid.propTypes = {
   alignCenter: PropTypes.bool,
 
   gutter: PropTypes.bool,
-}
+};
 
 Grid.defaultProps = {
   justifyRight: false,
@@ -74,6 +74,13 @@ Grid.defaultProps = {
   alignCenter: false,
 
   gutter: false,
-}
+};
 
-export default Grid
+export default Grid;
+
+// does not use grid uses flex
+// allows wrapping
+// uses boolean values when rendered to align
+// justifyRight justifyCenter alignTop alignBottom alignCenter gutter
+//
+// gutter ? goes left -1em, stays where it is

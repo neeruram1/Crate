@@ -1,6 +1,6 @@
 // Imports
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 // Component
 const GridCell = (props) => {
@@ -13,7 +13,7 @@ const GridCell = (props) => {
     justifyCenter,
     gutter,
     ...others
-  } = props
+  } = props;
 
   return (
     <div {...others}>
@@ -23,17 +23,17 @@ const GridCell = (props) => {
       <style jsx>{`
         div {
           flex: 1;
-          ${ alignTop ? 'align-self: flex-start;' : '' }
-          ${ alignBottom ? 'align-self: flex-end;' : '' }
-          ${ alignCenter ? 'align-self: center;' : '' }
-          ${ justifyRight ? 'justify-content: flex-end;' : '' }
-          ${ justifyCenter ? 'justify-content: center;' : '' }
-          ${ gutter ? 'padding-left: 1em;' : 'padding-left: 0;' }
+          ${alignTop ? "align-self: flex-start;" : ""}
+          ${alignBottom ? "align-self: flex-end;" : ""}
+          ${alignCenter ? "align-self: center;" : ""}
+          ${justifyRight ? "justify-content: flex-end;" : ""}
+          ${justifyCenter ? "justify-content: center;" : ""}
+          ${gutter ? "padding-left: 1em;" : "padding-left: 0;"}
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
 // Component Properties
 GridCell.propTypes = {
@@ -42,15 +42,20 @@ GridCell.propTypes = {
   alignCenter: PropTypes.bool,
   justifyRight: PropTypes.bool,
   justifyCenter: PropTypes.bool,
-  gutter: PropTypes.bool
-}
+  gutter: PropTypes.bool,
+};
 GridCell.defaultProps = {
   alignTop: false,
   alignBottom: false,
   alignCenter: false,
   justifyRight: false,
   justifyCenter: false,
-  gutter: false
-}
+  gutter: false,
+};
 
-export default GridCell
+export default GridCell;
+
+// does not use grid, uses flex
+// no pre determined wrapping
+// uses boolean values when rendered to align
+// alignTop alignBottom alignCenter justifyRight justifyCenter gutter
