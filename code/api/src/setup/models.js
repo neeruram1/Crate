@@ -21,3 +21,5 @@ models.sequelize = databaseConnection
 models.Sequelize = Sequelize
 
 export default models
+
+//I think this site is shat is setting up the models in the database
