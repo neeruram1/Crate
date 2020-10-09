@@ -21,3 +21,7 @@ models.sequelize = databaseConnection
 models.Sequelize = Sequelize
 
 export default models
+
+//Notes: I think this is close to what I expected of a graphQL schema...defines
+// the models for the database and makes them ORM compatible for easy use. Might
+// need to talk through this one more...

@@ -39,3 +39,5 @@ module.exports = {
     return queryInterface.dropTable('products');
   }
 }
+//Notes: Creates user table (up:), (down:) can roll back the migration, each
+// field is definded here and we can use this to add a 'style_id' or similar.

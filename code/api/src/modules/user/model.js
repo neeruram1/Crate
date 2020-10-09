@@ -23,3 +23,6 @@ module.exports = function(sequelize, DataTypes) {
 
   return User
 }
+//Notes: Defines user model for use by sequelize ORM, DataTypes are defined for
+// fields as well as DB relationship has many with Subscription objects. Has one
+// relationship with style will be an addition for this feature. 

@@ -30,3 +30,7 @@ module.exports = {
     return queryInterface.bulkDelete('users', null, {});
   }
 }
+//Notes: Creates user seeds using 'bulkInsert' (up:), and 'bulkDelete'(down:)
+// can roll back the seeds, if not null. Since each field is definded here and
+// we can use this to add a 'style_id' or similar, we need multiple users with
+// existing style to check something on the admin side we need big cange here.

@@ -21,3 +21,6 @@ const mutation = new GraphQLObjectType({
 })
 
 export default mutation
+
+//Notes: Will need to include style objects here for import and CUD functions.
+// This file is the framework for the mutations available via the API. 

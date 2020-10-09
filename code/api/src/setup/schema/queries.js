@@ -21,3 +21,6 @@ const query = new GraphQLObjectType({
 })
 
 export default query
+
+//Notes: This file is like a GET (pre- resolver) and will need to have style objects for import
+// and fields.

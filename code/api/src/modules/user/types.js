@@ -40,3 +40,7 @@ const UserGenderType = new GraphQLObjectType({
 })
 
 export { UserType, UserLoginType, UserGenderType }
+
+//Notes: custom object that represents how the api could look for users. Will
+// need to add field for style_id. Is it really a user gender? or are the products
+// gendered?
