@@ -59,3 +59,8 @@ export async function remove(parentValue, { id }, { auth }) {
     throw new Error('Access denied.')
   }
 }
+
+//Annotations:
+//I think that this file is contains our resolver functions for a subscription. I think that the resolver is taking in arguments from the GraphQL queries and mutations and these functions are actually interacting with the database, fetching the appropriate data and returning a response.
+
+//You have to be a logged in user to create or destroy a subscription

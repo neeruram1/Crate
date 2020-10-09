@@ -99,4 +99,6 @@ export async function getTypes() {
 }
 
 //Annotations:
-//I think that this file is contains our resolver functions for a product. I think that the resolver is taking in arguments from the GraphQL queries and mutations and these functions are actually interacting with the database, fetching the appropriate data and returning a response. 
+//I think that this file is contains our resolver functions for a product. I think that the resolver is taking in arguments from the GraphQL queries and mutations and these functions are actually interacting with the database, fetching the appropriate data and returning a response.
+
+//It looks like only a logged in admin user can create, update, or delete a product
