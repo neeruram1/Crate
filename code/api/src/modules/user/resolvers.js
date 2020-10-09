@@ -77,3 +77,12 @@ export async function remove(parentValue, { id }) {
 export async function getGenders() {
   return Object.values(params.user.gender)
 }
+
+//Annotations:
+//I think that this file is contains our resolver functions for a user. I think that the resolver is taking in arguments from the GraphQL queries and mutations and these functions are actually interacting with the database, fetching the appropriate data and returning a response.
+
+//The create functions first check to see if a user exists
+
+//I found out this about salt rounds - With "salt round" they actually mean the cost factor. The cost factor controls how much time is needed to calculate a single BCrypt hash. The higher the cost factor, the more hashing rounds are done. Increasing the cost factor by 1 doubles the necessary time. The more time is necessary, the more difficult is brute-forcing.
+
+//The login function returns a token

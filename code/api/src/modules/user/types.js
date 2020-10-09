@@ -40,3 +40,7 @@ const UserGenderType = new GraphQLObjectType({
 })
 
 export { UserType, UserLoginType, UserGenderType }
+
+//Annotation:
+//This file defines subscription as a GraphQL object. It needs to be defined here as a GraphQL object in addition to being defined in our database in order to perform GraphQL queries on it as well as being able to reference it in our database.
+//The user login type contains the token a user gets after logging in 
