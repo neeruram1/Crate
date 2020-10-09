@@ -47,3 +47,8 @@ export const userGenders = {
   type: new GraphQLList(UserGenderType),
   resolve: getGenders
 }
+
+//Annotation:
+//This file is defining Graph QL queries for finding all users and finding a single user by id. It's importing the getAll, getById, login, and getGenders functions from the resolver.js file and invoking those functions in the appropriate query. For example - in the user query - the resolve: getById is handling the query for the fields contained in the query, and it is generating the appropriate response.
+
+//Genders the function userGenders seems like it's returning a list of users with a specified gender
