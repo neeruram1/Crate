@@ -29,7 +29,6 @@ class Item extends PureComponent {
 
   // breaks if called differently in onClick, add to this method
   onClickSubscribe = (crateId) => {
-    console.log("crate -> Item.js -> onClickSubscribe");
     this.setState({
       isLoading: true,
     });
@@ -127,3 +126,11 @@ function itemState(state) {
 export default connect(itemState, { create, messageShow, messageHide })(
   withRouter(Item)
 );
+
+// Individual Crate Cards displayed when visiting crates page
+// Clicking the +Subscribe button should start our survey
+// The onClick should do something based on if user has a style already (if does have style do current path, if not go to survey page)
+
+// onClickSubscribe is going to have to replicated in our survey
+// it's going to have to be called here if the user already has a style (just use a turnery)
+// How is state and route changing?
