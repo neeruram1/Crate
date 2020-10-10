@@ -14,7 +14,11 @@ const MenuItem = (props) => {
 
   const isActiveRoute = () => {
     const currentSection = props.location.pathname.split('/')[1]
-
+    /*
+    This part is what makes the menu look to be active based on the path location. 
+    If we would like to have our survey page act in the menu we will need to reference this
+    but change the Menu.js file  to add a new menu item
+    */
     return (currentSection === to.split('/')[1] && currentSection === section)
       || props.location.pathname === to
       || active
