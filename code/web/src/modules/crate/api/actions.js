@@ -119,6 +119,12 @@ export function createOrUpdate(crate) {
   }
 }
 
+/**
+ * Here is the function that will really need to be replicated at the end of the survey
+ * It takes in a crate ID on the other end in here refrenced as variables
+ * Then using the mutation sends that operation in a post
+ * Incudes the fields and operation and variables to communicate correctly with the backend
+ */
 // Create crate
 export function create(variables) {
   return dispatch => {
