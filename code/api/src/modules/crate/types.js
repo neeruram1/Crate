@@ -16,3 +16,5 @@ const CrateType = new GraphQLObjectType({
 })
 
 export default CrateType
+
+//Notes: custom object that represents how the api could look yfor crate.

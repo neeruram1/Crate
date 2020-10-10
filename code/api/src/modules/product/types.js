@@ -31,3 +31,5 @@ const ProductTypesType = new GraphQLObjectType({
 })
 
 export { ProductType, ProductTypesType }
+
+//Notes: style_id will need to be added here. 

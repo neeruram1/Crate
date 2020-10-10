@@ -43,3 +43,4 @@ export const productTypes = {
   type: new GraphQLList(ProductTypesType),
   resolve: getTypes
 }
+//Notes; if we add the flag for survey related products we would need to add a query here. 

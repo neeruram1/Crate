@@ -97,3 +97,4 @@ export async function remove(parentValue, { id }, { auth }) {
 export async function getTypes() {
   return Object.values(params.product.types)
 }
+//Notes: Possibly need to add one for getting survey related products

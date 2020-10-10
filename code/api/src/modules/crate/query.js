@@ -22,3 +22,9 @@ export const crateById = {
   },
   resolve: getById
 }
+
+//Notes: Graph QL queries for finding all crates and finding a single crate by
+// id. It's importing the getAll and getById functions from  resolver.js and
+// invoking those functions in the query.
+// Ex. crateById query - the resolve: getById is handling the query for the
+// fields contained in the query, and it is generating the appropriate response.

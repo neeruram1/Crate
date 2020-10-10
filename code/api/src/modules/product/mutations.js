@@ -95,3 +95,5 @@ export const productRemove = {
   },
   resolve: remove
 }
+
+//Notes: Add style and potential boolean flag for survey

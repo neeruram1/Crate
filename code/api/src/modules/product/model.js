@@ -23,3 +23,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 }
+// Notes: We will probably use products to build the style survey.
+// Add a style column for each item
+// Add a survey flag to tell if it should be in the survey? since they wont be 'real products'?

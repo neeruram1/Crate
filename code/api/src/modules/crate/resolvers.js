@@ -54,3 +54,7 @@ export async function remove(parentValue, { id }, { auth }) {
     throw new Error('Operation denied.')
   }
 }
+
+//Notes: the resolver is taking in arguments from the Graph QL queries and
+// mutations and these functions are actually interacting with the database,
+// fetching data and returning a response. 

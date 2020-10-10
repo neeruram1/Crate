@@ -92,3 +92,6 @@ module.exports = {
     return queryInterface.bulkDelete('products', null, {});
   }
 }
+//Notes: Creates product seeds using 'bulkInsert' (up:), and 'bulkDelete'(down:)
+// can roll back the seeds, if not null. Since each field is definded here and
+// we can use this to add a 'style_id' or similar, 
