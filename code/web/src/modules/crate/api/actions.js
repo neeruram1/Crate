@@ -39,7 +39,18 @@ export function getList(orderBy = 'DESC', isLoading = true) {
       error: null,
       isLoading
     })
+    /*
+    GraphQL Rules: ---- 
+    TYPES:
+    query - getting shit
+    mutation - deleting creating or updating
+    subscription - mapStateToProps for the backend
 
+    All have
+      operation - the command- (action type)
+      variable - data arguments that relate to the attributes of objects on the backend
+      field - what we want back 
+    */
     return axios.post(routeApi, query({
       operation: 'crates',
       variables: { orderBy },
