@@ -25,23 +25,25 @@ const Men = (props) => (
       <title>Monthly supply of clothes and accessories for Men - Crate</title>
     </Helmet>
 
-    {/* Left Content - Image Collage */}
+
+    {/* Left Content - Image Collage */
+    /* Image Tile creation here uses the imported APP URL for the background concating the route*/}
     <GridCell>
       <Grid gutter={true} alignCenter={true}>
         <GridCell justifyCenter={true}>
-          <ImageTile width={300} height={530} shadow={level1} image={`${ APP_URL }/images/stock/men/1.jpg`} />
+          <ImageTile width={300} height={530} shadow={level1} image={`${APP_URL}/images/stock/men/1.jpg`} />
         </GridCell>
 
         <GridCell>
           <Grid>
             <GridCell justifyCenter={true}>
-              <ImageTile width={170} height={250} shadow={level1} image={`${ APP_URL }/images/stock/men/2.jpg`} />
+              <ImageTile width={170} height={250} shadow={level1} image={`${APP_URL}/images/stock/men/2.jpg`} />
             </GridCell>
           </Grid>
 
           <Grid>
             <GridCell justifyCenter={true}>
-              <ImageTile width={170} height={250} shadow={level1} image={`${ APP_URL }/images/stock/men/3.jpg`} style={{ marginTop: '1.9em' }} />
+              <ImageTile width={170} height={250} shadow={level1} image={`${APP_URL}/images/stock/men/3.jpg`} style={{ marginTop: '1.9em' }} />
             </GridCell>
           </Grid>
         </GridCell>
@@ -60,11 +62,11 @@ const Men = (props) => (
       {
         props.user.isAuthenticated
           ? <Link to={crateRoutes.list.path}>
-              <Button theme="secondary" style={{ marginTop: '1em' }}>Get Subscription</Button>
-            </Link>
+            <Button theme="secondary" style={{ marginTop: '1em' }}>Get Subscription</Button>
+          </Link>
           : <Link to={userRoutes.signup.path}>
-              <Button theme="secondary" style={{ marginTop: '1em' }}>Get Started</Button>
-            </Link>
+            <Button theme="secondary" style={{ marginTop: '1em' }}>Get Started</Button>
+          </Link>
       }
     </GridCell>
   </Grid>
