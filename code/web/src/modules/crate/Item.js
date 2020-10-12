@@ -14,6 +14,7 @@ import { white, grey2, black } from '../../ui/common/colors'
 // App Imports
 import { APP_URL } from '../../setup/config/env'
 import userRoutes from '../../setup/routes/user'
+import surveyRoute from '../../setup/routes/styleSurvey'
 import { messageShow, messageHide } from '../common/api/actions'
 import { create } from '../subscription/api/actions'
 
@@ -28,35 +29,38 @@ class Item extends PureComponent {
     }
   }
 
+  // Original add of crate commented out
+  // Currently just navigates to the survey page
   onClickSubscribe = (crateId) => {
-    this.setState({
-      isLoading: true
-    })
+    this.props.history.push(surveyRoute.survey.path)
+    // this.setState({
+    //   isLoading: true
+    // })
 
-    this.props.messageShow('Subscribing, please wait...')
+    // this.props.messageShow('Subscribing, please wait...')
 
-    this.props.create({ crateId })
-      .then(response => {
-        if (response.data.errors && response.data.errors.length > 0) {
-          this.props.messageShow(response.data.errors[0].message)
-        } else {
-          this.props.messageShow('Subscribed successfully.')
+    // this.props.create({ crateId })
+    //   .then(response => {
+    //     if (response.data.errors && response.data.errors.length > 0) {
+    //       this.props.messageShow(response.data.errors[0].message)
+    //     } else {
+    //       this.props.messageShow('Subscribed successfully.')
 
-          this.props.history.push(userRoutes.subscriptions.path)
-        }
-      })
-      .catch(error => {
-        this.props.messageShow('There was some error subscribing to this crate. Please try again.')
-      })
-      .then(() => {
-        this.setState({
-          isLoading: false
-        })
+    //       this.props.history.push(userRoutes.subscriptions.path)
+    //     }
+    //   })
+    //   .catch(error => {
+    //     this.props.messageShow('There was some error subscribing to this crate. Please try again.')
+    //   })
+    //   .then(() => {
+    //     this.setState({
+    //       isLoading: false
+    //     })
 
-        window.setTimeout(() => {
-          this.props.messageHide()
-        }, 5000)
-      })
+    //     window.setTimeout(() => {
+    //       this.props.messageHide()
+    //     }, 5000)
+    //   })
   }
 
   render() {
@@ -66,7 +70,7 @@ class Item extends PureComponent {
     return (
       <Card style={{ width: '18em', backgroundColor: white }}>
         <p style={{ padding: '2em 3em 0 3em' }}>
-          <img src={`${ APP_URL }/images/crate.png`} alt={name} style={{ width: '100%' }}/>
+          <img src={`${APP_URL}/images/crate.png`} alt={name} style={{ width: '100%' }} />
         </p>
 
         <div style={{ padding: '1em 1.2em' }}>
@@ -79,7 +83,7 @@ class Item extends PureComponent {
               theme="primary"
               onClick={this.onClickSubscribe.bind(this, id)}
               type="button"
-              disabled={ isLoading }
+              disabled={isLoading}
             >
               <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
             </Button>
