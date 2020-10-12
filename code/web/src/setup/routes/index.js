@@ -1,16 +1,19 @@
 // App Imports
-import { APP_URL_API } from '../config/env'
-import admin from './admin'
-import home from './home'
-import user from './user'
-import product from './product'
-import crate from './crate'
+import { APP_URL_API } from "../config/env";
+import admin from "./admin";
+import home from "./home";
+import user from "./user";
+import product from "./product";
+import crate from "./crate";
 
 // Combined routes
-export const routes = Object.assign(admin, home, user, product, crate)
+export const routes = Object.assign(admin, home, user, product, crate);
 
 // API Routes
-export const routeApi = APP_URL_API
+export const routeApi = APP_URL_API;
 
 // Image
-export const routeImage = APP_URL_API
+export const routeImage = APP_URL_API;
+
+// importing this rather than directory
+// we're going to be using user
