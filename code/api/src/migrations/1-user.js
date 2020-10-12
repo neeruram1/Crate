@@ -33,3 +33,6 @@ module.exports = {
     return queryInterface.dropTable('users');
   }
 }
+
+// auto-generated with CLI sequelize migration:create
+// createTable: this establishes what is in the DB

@@ -23,7 +23,9 @@
     "url": "https://github.com/atulmy/crate/issues"
   },
   "homepage": "https://github.com/atulmy/crate#readme",
-  "dependencies": {},
+  "dependencies": {
+    "pg": "^8.4.0"
+  },
   "devDependencies": {
     "concurrently": "^4.1.0"
   }

@@ -21,3 +21,7 @@ models.sequelize = databaseConnection
 models.Sequelize = Sequelize
 
 export default models
+
+//this makes a connection between a model and the DB entries
+// this allows for ORM behavior within files
+//without this file, you would have to import Sequelize and model objects on every file that would need it

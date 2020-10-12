@@ -92,3 +92,7 @@ module.exports = {
     return queryInterface.bulkDelete('products', null, {});
   }
 }
+
+// bulkInsert:Node::create:Rails
+// up: directions for what to do when migrating
+// down: directions for what to do when rolling back the migration

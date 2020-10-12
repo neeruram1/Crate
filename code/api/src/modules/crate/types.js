@@ -16,3 +16,5 @@ const CrateType = new GraphQLObjectType({
 })
 
 export default CrateType
+
+//defining the object for GraphQL

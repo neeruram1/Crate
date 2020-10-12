@@ -13,3 +13,5 @@ export default function (server) {
     }
   })
 }
+
+//application server configuration file 

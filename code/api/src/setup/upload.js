@@ -39,3 +39,5 @@ export default function (server) {
     })
   })
 }
+
+//uploads images, etc 

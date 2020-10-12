@@ -55,3 +55,5 @@ export const crateRemove = {
   },
   resolve: remove
 }
+
+// mutations alter the state of the DB

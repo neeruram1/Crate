@@ -54,3 +54,8 @@ export async function remove(parentValue, { id }, { auth }) {
     throw new Error('Operation denied.')
   }
 }
+
+// Resolver: middleman between graphql mutation/query and the database
+// findAll - sequelize
+// getAll - GraphQL
+//sad path and happy path 

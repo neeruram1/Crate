@@ -16,3 +16,9 @@ module.exports = function(sequelize, DataTypes) {
 
   return Crate
 }
+
+//database model for Crate
+// model file allows the use of Sequelize
+// model object used in resolvers
+//DataTypes is a convenience class
+// defne method links the model and table.

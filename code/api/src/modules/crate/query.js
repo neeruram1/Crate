@@ -22,3 +22,5 @@ export const crateById = {
   },
   resolve: getById
 }
+
+// queries will not alter the entries in the DB, just gets them 

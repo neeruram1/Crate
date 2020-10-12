@@ -31,3 +31,6 @@ export default function (server) {
     server.use(morgan('tiny'))
   }
 }
+
+// framework configuration file (node and express)
+// equivalent to application.rb in rails 

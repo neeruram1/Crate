@@ -25,3 +25,5 @@ export default function (server) {
     }
   })))
 }
+
+// configuration file for gql   
