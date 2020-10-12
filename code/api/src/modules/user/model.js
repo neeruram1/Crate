@@ -14,11 +14,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     role: {
       type: DataTypes.TEXT
+    },
+    styleId: {
+      type: DataTypes.INTEGER
     }
   })
 
   User.associate = function(models) {
     User.hasMany(models.Subscription)
+    User.hasOne(models.Style)
   }
 
   return User

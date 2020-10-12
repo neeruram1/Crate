@@ -19,6 +19,15 @@ module.exports = {
       role: {
         type: Sequelize.TEXT
       },
+      // styleId: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'style',
+      //     key: 'id'
+      //   },
+      //   allowNull: true,
+      //   defaultValue: null
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

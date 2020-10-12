@@ -1,5 +1,6 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { StyleType } from '../style/types'
 
 // User type
 const UserType = new GraphQLObjectType({
@@ -12,6 +13,7 @@ const UserType = new GraphQLObjectType({
     email: { type: GraphQLString },
     password: { type: GraphQLString },
     role: { type: GraphQLString },
+    style: { type: StyleType },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })
