@@ -44,3 +44,4 @@ export default App;
 
 // Biggest question is how is the route object being determined, in the reducer? might be a change in props
 // still not 100% sure how it's determining which of many routes to display
+// believe it's most likely through state
