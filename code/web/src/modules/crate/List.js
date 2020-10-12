@@ -16,6 +16,8 @@ import EmptyMessage from '../common/EmptyMessage'
 import CrateItem from './Item'
 
 // Component
+// according to this medium article https://medium.com/technofunnel/working-with-react-pure-components-166ded26ae48
+// Adding pureComponent means that the page will not render if no change has been detected in state
 class List extends PureComponent {
 
   // Runs on server only for SSR
@@ -26,6 +28,7 @@ class List extends PureComponent {
   // Runs on client only
   componentDidMount() {
     this.props.getCratesList('ASC')
+    // ASC means ascending maybe?
   }
 
   render() {
@@ -40,13 +43,13 @@ class List extends PureComponent {
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <H3 font="secondary">Crates for everyone!</H3>
-
+            {/* This is the greyish portion of the window where instructions show up. Using this format might make sense when it comes to the survey */}
             <p style={{ marginTop: '1em', color: grey2 }}>You can choose crate which suits your need. You can also
               subscribe to multiple crates.</p>
           </GridCell>
         </Grid>
-
         {/* Crate list */}
+        {/* This is wear the options for the survey will be placed */}
         <Grid>
           <GridCell>
             {
@@ -54,6 +57,8 @@ class List extends PureComponent {
                 ? <Loading/>
                 : this.props.crates.list.length > 0
                     ? this.props.crates.list.map(crate => (
+                      // if we have crates to show, render them in their own dives with the component CrateItem
+                      // I think CrateItem is originally just Item but we call it CrateItem here.
                       <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
                         <CrateItem crate={crate}/>
                       </div>

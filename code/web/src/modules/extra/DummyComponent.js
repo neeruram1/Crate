@@ -1,8 +1,10 @@
 // Imports
 import React, { PureComponent } from 'react'
 
-// App Imports
+// These files appear to be for template reasons
 
+// App Imports
+//
 // Component
 class DummyComponent extends PureComponent {
 

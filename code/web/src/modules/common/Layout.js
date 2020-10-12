@@ -29,6 +29,7 @@ class Layout extends PureComponent {
         </section>
 
         {/* Messages */}
+        
         {renderIf(this.props.common.message.open, () => (
           <div style={{
             boxShadow: level2,

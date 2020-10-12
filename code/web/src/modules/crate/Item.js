@@ -18,25 +18,31 @@ import { messageShow, messageHide } from '../common/api/actions'
 import { create } from '../subscription/api/actions'
 
 // Component
+// Looking at DevTools, Item seems to be a child of Grid-LL
 class Item extends PureComponent {
 
   constructor(props) {
     super(props)
 
     this.state = {
+      // The loading state prop seems to be used specifically for the button. If it's true, the button gets disabled-LL
       isLoading: false
     }
   }
 
   onClickSubscribe = (crateId) => {
+    // Once the user hits the subscribe btn, state.isLoading becomes true and the button becomes disabled
+
     this.setState({
       isLoading: true
+  
     })
 
     this.props.messageShow('Subscribing, please wait...')
 
     this.props.create({ crateId })
       .then(response => {
+        // The below conditional is for handling if an error appears -LL
         if (response.data.errors && response.data.errors.length > 0) {
           this.props.messageShow(response.data.errors[0].message)
         } else {
@@ -75,6 +81,7 @@ class Item extends PureComponent {
           <p style={{ color: grey2, marginTop: '1em' }}>{description}</p>
 
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
+            {/* The button below is the door to get to our survey so it might need to be turned into a link that routes us there. Right now, all it does is change isLoading to True. Not sure how it knows to route anywhere though */}
             <Button
               theme="primary"
               onClick={this.onClickSubscribe.bind(this, id)}
@@ -99,10 +106,12 @@ Item.propTypes = {
 }
 
 // Component State
+// mapping to props
 function itemState(state) {
   return {
     user: state.user
   }
 }
 
+// connecting but doing some destructuring for the mapDispatch (I think)
 export default connect(itemState, { create, messageShow, messageHide })(withRouter(Item))

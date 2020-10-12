@@ -25,6 +25,7 @@ class List extends PureComponent {
     dispatch(getCratesList())
   }
 
+  // not sure what the # is doing here on the methdod
   #onSuccessSubscription = () => {
     const { navigation, dispatch } = this.props
 
@@ -38,6 +39,9 @@ class List extends PureComponent {
 
     return (
       <View style={styles.container}>
+        {/* Below Ternary: if isLoading is true, render Loading comp, if false, ANOTHER ternary is invoked- if the there is a list and if that list is over 0, render ScrollView, otherwise render EmptyMessage */}
+        {/* ScrollView seems to be coming directly from React */}
+
         {
           isLoading
             ? <Loading />
@@ -66,6 +70,9 @@ List.propTypes = {
 }
 
 // Component State
+// This function is probably mapStateToProps?
+// Sends an action with the user info and crates
+// purpose is to list those crates
 function listState(state) {
   return {
     crates: state.crates,
@@ -73,4 +80,5 @@ function listState(state) {
   }
 }
 
+// connecting listState to store. WithNavigation might be needed with Router
 export default connect(listState)(withNavigation(List))

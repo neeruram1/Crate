@@ -13,6 +13,7 @@ import {
 // Crates list
 
 // Initial State
+// Sets up inital state for the App
 const cratesInitialState = {
   isLoading: false,
   error: null,
@@ -20,6 +21,7 @@ const cratesInitialState = {
 }
 
 // State
+// structure here looks like it should be a reducer due to the switch statements
 export const crates = (state = cratesInitialState, action) => {
   switch (action.type) {
     case CRATES_GET_LIST_REQUEST:
@@ -51,7 +53,10 @@ export const crates = (state = cratesInitialState, action) => {
 
 // Single crate
 
+//Wondering what needs to go in here...
+
 // Initial State
+// Keep in mind this is crate without an S, differing from the above which is crateS
 const crateInitialState = {
   isLoading: false,
   error: null,
