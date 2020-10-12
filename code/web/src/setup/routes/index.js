@@ -4,11 +4,11 @@ import admin from './admin'
 import home from './home'
 import user from './user'
 import product from './product'
-import crate from './crate'
 import styleSurvey from './styleSurvey'
+import crate from './crate'
 
 // Combined routes
-export const routes = Object.assign(admin, home, user, product, crate, styleSurvey)
+export const routes = Object.assign(admin, home, user, product, styleSurvey, crate)
 
 // API Routes
 export const routeApi = APP_URL_API

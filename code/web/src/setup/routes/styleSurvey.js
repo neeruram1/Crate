@@ -1,11 +1,11 @@
 // App Imports
-import List from '../../modules/styleSurvey/List'
+import Survey from '../../modules/styleSurvey/Survey'
 
 // styleSurvey routes
 export default {
-  list: {
+  survey: {
     path: '/style-preferences',
-    component: List,
+    component: Survey,
     auth: true
   }
 }

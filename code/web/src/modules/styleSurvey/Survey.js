@@ -1,5 +1,5 @@
 // Imports
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 // import { Helmet } from 'react-helmet'
@@ -16,7 +16,7 @@ import { connect } from 'react-redux'
 // import CrateItem from './Item'
 
 // Component
-class List extends PureComponent {
+class Survey extends Component {
 
   // // Runs on server only for SSR
   // static fetchData({ store }) {
@@ -50,4 +50,4 @@ function listState(state) {
   }
 }
 
-export default connect(listState, null)(List)
+export default connect(listState, null)(Survey)
