@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet'
 
 // // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
-import { H3 } from '../../ui/typography'
-import { grey, grey2 } from '../../ui/common/colors'
+import { H3, H4 } from '../../ui/typography'
+import { grey, grey2, secondary } from '../../ui/common/colors'
 
 // // App Imports
 // import { getList as getCratesList } from './api/actions'
@@ -39,18 +39,33 @@ class Survey extends Component {
             <p style={{ marginTop: '1em', color: grey2 }}>Before we get you subscribed, let's get down your style.<br></br> In each of the following categories, choose the image that best describes you!</p>
           </GridCell>
         </Grid>
-        <Grid alignCenter={true} style={{
-          backgroundImage: `url('${ APP_URL }/images/cover.jpg')`,
-          backgroundAttachment: 'fixed',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          height: 'calc(100vh - 5em)',
-          textAlign: 'center',
-          color: white
-        }}>
-      
+        <Grid style={{ backgroundColor: secondary }}>
+          <GridCell
+            gutter={true}
+            style={{
+              minWidth: '80vw'
+            }}
+          >
+            <H4>YOLO</H4>
+          </GridCell><GridCell
+            gutter={true}
+            style={{
+              minWidth: '80vw'
+            }}
+          >
+            <H4>YOLO</H4>
+          </GridCell><GridCell
+            gutter={true}
+            style={{
+              minWidth: '80vw'
+            }}
+          >
+            <H4>YOLO</H4>
+          </GridCell>
+         
           
         </Grid>
+
       </div>
     )
   }
