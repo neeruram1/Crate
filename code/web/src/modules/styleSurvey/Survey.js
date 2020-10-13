@@ -1,18 +1,19 @@
 // Imports
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-// import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet'
+
 
 // // UI Imports
-// import { Grid, GridCell } from '../../ui/grid'
-// import { H3 } from '../../ui/typography'
-// import { grey, grey2 } from '../../ui/common/colors'
+import { Grid, GridCell } from '../../ui/grid'
+import { H3 } from '../../ui/typography'
+import { grey, grey2 } from '../../ui/common/colors'
 
 // // App Imports
 // import { getList as getCratesList } from './api/actions'
-// import Loading from '../common/Loading'
-// import EmptyMessage from '../common/EmptyMessage'
+import Loading from '../common/Loading'
+import EmptyMessage from '../common/EmptyMessage'
 // import CrateItem from './Item'
 
 // Component
@@ -31,7 +32,25 @@ class Survey extends Component {
   render() {
     return (
       <div>
-        Hello World
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            <H3 font="secondary">Welcome to the Style Survey</H3>
+
+            <p style={{ marginTop: '1em', color: grey2 }}>Before we get you subscribed, let's get down your style.<br></br> In each of the following categories, choose the image that best describes you!</p>
+          </GridCell>
+        </Grid>
+        <Grid alignCenter={true} style={{
+          backgroundImage: `url('${ APP_URL }/images/cover.jpg')`,
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          height: 'calc(100vh - 5em)',
+          textAlign: 'center',
+          color: white
+        }}>
+      
+          
+        </Grid>
       </div>
     )
   }
