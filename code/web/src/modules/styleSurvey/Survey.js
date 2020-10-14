@@ -44,13 +44,13 @@ class Survey extends Component {
           <GridCell
             gutter={true}
             style={{
-              minWidth: '80vw'
+              width: 'auto'
             }}
           >
             <Category />
           </GridCell>
-         
-          
+
+
         </Grid>
 
       </div>

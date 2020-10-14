@@ -7,16 +7,12 @@ const CategoryImage = (props) => {
   const { children, image, width, height, style, shadow, ...others } = props
 
   return (
-    <div style={{ minWidth: '5em', minHeight: '5em'}}>
-      <p>stuff</p>
-      <style jsx>{`
-        div {
-          background-image:url('${ image}');
-          background-size: 100% auto;
-          box-shadow: ${ shadow ? shadow : 'none'};
-        }
-      `}</style>
-    </div>
+    <img
+      src={`${image}`}
+      style={{
+        width: '15em',
+      }}>
+    </img>
   )
 }
 
@@ -28,11 +24,11 @@ const CategoryImage = (props) => {
 //   height: PropTypes.number,
 //   shadow: PropTypes.string
 // }
-CategoryImage.defaultProps = {
-  style: {},
-  width: '20em',
-  height: '20em'
-}
+// CategoryImage.defaultProps = {
+//   style: {},
+//   width: '20em',
+//   height: '20em'
+// }
 
 // connect go here???????
 export default CategoryImage
