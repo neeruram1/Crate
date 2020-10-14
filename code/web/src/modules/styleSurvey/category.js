@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Grid, GridCell } from '../../ui/grid'
 import { H3, H4 } from '../../ui/typography'
-import { grey, grey2, secondary, white } from '../../ui/common/colors'
+import { grey, grey2, grey3, secondary, white } from '../../ui/common/colors'
 import CategoryImage from './CategoryImage'
 
 class Category extends Component {
@@ -39,23 +39,27 @@ class Category extends Component {
     })
     return (
       <div style={{
-        border: '.5em solid black',
-        margin: '0 10vw',
+        border: `1em solid ${grey2}`,
+        borderRadius: '.1em',
+        margin: '3vh 10vw',
         width: '80vw',
         textAlign: 'center',
         alignSelf: 'center'
       }}>
-        <Grid style={{ backgroundColor: white }}>
-          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{
+            padding: '2vh 0',
+            textAlign: 'center',
+          }}>
             <H4 font="secondary">Category Name</H4>
           </GridCell>
         </Grid >
         <Grid
           style={{
-            backgroundColor: white,
+            backgroundColor: grey,
             textAlign: 'center',
-            margin: '0 3em',
-            padding: '0 4em',
+            margin: '0',
+            padding: '0 8vw',
           }}
         >
           {selections}
