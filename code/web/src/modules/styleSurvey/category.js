@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Grid, GridCell } from '../../ui/grid'
 import { H3, H4 } from '../../ui/typography'
 import { grey, grey2, grey3, secondary, white } from '../../ui/common/colors'
+import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
 import CategoryImage from './CategoryImage'
 
 class Category extends Component {
@@ -26,7 +27,7 @@ class Category extends Component {
           justifyRight={true}
           gutter={false}
           style={{
-            marginBottom: '1em'
+            marginBottom: '1em',
           }}
         >
           <CategoryImage
@@ -44,7 +45,8 @@ class Category extends Component {
         margin: '3vh 10vw',
         width: '80vw',
         textAlign: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        boxShadow: `${level4}`
       }}>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{

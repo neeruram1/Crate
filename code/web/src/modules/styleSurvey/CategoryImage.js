@@ -1,17 +1,27 @@
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
+import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
+import { grey, grey2, grey3, grey4, secondary, white } from '../../ui/common/colors'
 
 // Component
 const CategoryImage = (props) => {
   const { children, image, width, height, style, shadow, ...others } = props
-
+  // the conditional will have to be tied to state based on ifClicked
+  const boxBorder = (true === true) ? 'none' : `.7em solid ${grey4}`
   return (
     <img
       src={`${image}`}
       style={{
         width: '15em',
-      }}>
+        boxShadow: `${level3}`,
+        border: `${boxBorder}`,
+        borderRadius: '.2em',
+      }}
+      onClick={() => {
+        console.log('click')
+      }}
+    >
     </img>
   )
 }
