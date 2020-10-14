@@ -2,3 +2,5 @@ node_modules/
 build/
 public/images/uploads/*
 !public/images/uploads/.gitkeep
+api/.env
+/Users/leasw144/turing/mod_4/crate/code/api/src/config/env.js
