@@ -26,12 +26,14 @@ class Survey extends Component {
   // }
 
   // // Runs on client only
-  // componentDidMount() {
-  //   this.props.getCratesList('ASC')
-  // }
+  componentDidMount() {
+    console.log(this.props)
+  }
 
   render() {
+
     return (
+
       <div>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
@@ -108,7 +110,7 @@ class Survey extends Component {
 // Component State
 function listState(state) {
   return {
-    crates: state.crates
+    surveyImages: state.surveyImages
   }
 }
 

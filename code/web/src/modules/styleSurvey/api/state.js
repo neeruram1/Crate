@@ -22,6 +22,7 @@ export const survey = (state = surveyInitialState, action) => {
                 ...state,
                 surveyImages: action.surveyImages
             }
+        default:
+            return state
     }
-
 }
