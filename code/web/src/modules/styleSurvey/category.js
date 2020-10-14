@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Grid, GridCell } from '../../ui/grid'
-import { H3 } from '../../ui/typography'
+import { H3, H4 } from '../../ui/typography'
+import { grey, grey2, secondary } from '../../ui/common/colors'
+import CategoryImage from './CategoryImage'
 
-
-class Survey extends Component {
+class Category extends Component {
 
   // // Runs on server only for SSR
   // static fetchData({ store }) {
@@ -18,41 +19,37 @@ class Survey extends Component {
   // }
 
   render() {
+    const imgTile = [1, 2, 3, 4, 5, 6]
+    const selections = imgTile.map(image => {
+      return (
+        <GridCell>
+          <CategoryImage 
+            // id='Tyler' 
+            // category='Camping-Tyler' 
+            image={'https://media-exp1.licdn.com/dms/image/C4E03AQFcLZyfrjwZkA/profile-displayphoto-shrink_200_200/0?e=1603324800&v=beta&t=VMxP_bu_kZ5FjXqIEMFAruFcv8P84hPo5ObkBJw1GpY'}
+            />
+        </GridCell>
+      )
+    })
     return (
-      <div>
+      <div style={{
+        border: '1px solid black',
+        margin: '2em'
+        }}>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
-            <H3 font="secondary">Welcome to the Style Survey</H3>
-
-            <p style={{ marginTop: '1em', color: grey2 }}>Before we get you subscribed, let's get down your style.<br></br> In each of the following categories, choose the image that best describes you!</p>
+            <H4 font="secondary">Category Name</H4>
           </GridCell>
         </Grid>
-        <Grid style={{ backgroundColor: secondary }}>
-          <GridCell
-            gutter={true}
-            style={{
-              minWidth: '80vw'
-            }}
-          >
-            <H4>YOLO</H4>
-          </GridCell><GridCell
-            gutter={true}
-            style={{
-              minWidth: '80vw'
-            }}
-          >
-            <H4>YOLO</H4>
-          </GridCell><GridCell
-            gutter={true}
-            style={{
-              minWidth: '80vw'
-            }}
-          >
-            <H4>YOLO</H4>
-          </GridCell>
+        <Grid style={{ backgroundColor: grey }}>
+          <Grid>
+            {selections}
+          </Grid>
+            
+    
 
+        </Grid> 
 
-        </Grid>
       </div>
     )
   }
