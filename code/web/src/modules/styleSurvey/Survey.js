@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
+import Category from './Category'
 
 
 // // UI Imports
@@ -39,28 +40,14 @@ class Survey extends Component {
             <p style={{ marginTop: '1em', color: grey2 }}>Before we get you subscribed, let's get down your style.<br></br> In each of the following categories, choose the image that best describes you!</p>
           </GridCell>
         </Grid>
-        <Grid style={{ backgroundColor: secondary }}>
+        <Grid>
           <GridCell
             gutter={true}
             style={{
               minWidth: '80vw'
             }}
           >
-            <H4>YOLO</H4>
-          </GridCell><GridCell
-            gutter={true}
-            style={{
-              minWidth: '80vw'
-            }}
-          >
-            <H4>YOLO</H4>
-          </GridCell><GridCell
-            gutter={true}
-            style={{
-              minWidth: '80vw'
-            }}
-          >
-            <H4>YOLO</H4>
+            <Category />
           </GridCell>
          
           
