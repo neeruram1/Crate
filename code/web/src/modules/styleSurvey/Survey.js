@@ -49,6 +49,47 @@ class Survey extends Component {
           >
             <Category />
           </GridCell>
+          <GridCell
+            gutter={true}
+            style={{
+              width: 'auto'
+            }}
+          >
+            <Category />
+          </GridCell>
+          <GridCell
+            gutter={true}
+            style={{
+              width: 'auto'
+            }}
+          >
+            <Category />
+          </GridCell>
+          <GridCell
+            gutter={true}
+            style={{
+              width: 'auto'
+            }}
+          >
+            <Category />
+          </GridCell>
+          <GridCell
+            gutter={true}
+            style={{
+              width: 'auto'
+            }}
+          >
+            <Category />
+          </GridCell>
+          <GridCell
+            gutter={true}
+            style={{
+              width: 'auto'
+            }}
+          >
+            <Category />
+          </GridCell>
+
 
 
         </Grid>
