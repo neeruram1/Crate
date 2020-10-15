@@ -17,6 +17,9 @@ import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
 // import CrateItem from './Item'
 
+// // API imports
+import { getSurveyImages } from './api/actions'
+
 // Component
 class Survey extends Component {
 
@@ -27,7 +30,9 @@ class Survey extends Component {
 
   // // Runs on client only
   componentDidMount() {
-    console.log(this.props)
+    console.log('before', this.props)
+    this.props.getSurveyImages()
+    console.log('after', this.props)
   }
 
   render() {
@@ -110,8 +115,8 @@ class Survey extends Component {
 // Component State
 function listState(state) {
   return {
-    surveyImages: state.surveyImages
+    surveyImages: state.survey.surveyImages
   }
 }
 
-export default connect(listState, null)(Survey)
+export default connect(listState, { getSurveyImages })(Survey)
