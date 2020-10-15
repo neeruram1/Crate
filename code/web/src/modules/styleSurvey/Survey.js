@@ -35,14 +35,13 @@ class Survey extends Component {
   componentDidMount() {
     this.props.getSurveyImages()
     console.log('props in survey', this.props)
-    console.log('props in survey2', this.props)
   }
 
   render() {
-
     return (
 
       <div>
+
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <H3 font="secondary">Welcome to the Style Survey</H3>
