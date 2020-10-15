@@ -7,13 +7,13 @@ import { routeApi } from '../../../setup/routes'
 
 export const GET_SURVEY_IMAGES = 'GET_SURVEY_IMAGES'
 
-export function getSurveyImages() {
+export function getSurveyImages(surveyImages) {
 	return dispatch => {
 		dispatch({
 			type: 'GET_SURVEY_IMAGES',
 			isLoading: false,
 			error: null,
-			surveyImages: { test1: 'test test test' }
+			surveyImages: surveyImages
 		})
 	}
 }
