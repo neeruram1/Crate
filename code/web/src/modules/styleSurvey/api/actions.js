@@ -38,7 +38,7 @@ export function getSurveyImages(isLoading = true) {
 		}))
 			.then(response => {
 				if (response.status === 200) {
-					console.log('successsssss')
+					console.log('response', response)
 					dispatch({
 						type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
 						error: null,
