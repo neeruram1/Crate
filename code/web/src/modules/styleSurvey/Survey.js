@@ -115,7 +115,8 @@ class Survey extends Component {
 // Component State
 function listState(state) {
   return {
-    surveyImages: state.survey.surveyImages
+    surveyImages: state.survey.surveyImages,
+    userChoices: state.survey.userChoices
   }
 }
 

@@ -13,7 +13,8 @@ export function getSurveyImages(surveyImages) {
 			type: 'GET_SURVEY_IMAGES',
 			isLoading: false,
 			error: null,
-			surveyImages: surveyImages
+			surveyImages: surveyImages,
+			userChoices: { 'RoleModel': 0, 'AlternateUniverse': 0, 'SuperPower': 0, 'Vaction': 0, 'DreamHome': 0, 'Soup': 0 }
 		})
 	}
 }
