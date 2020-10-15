@@ -23,15 +23,15 @@ import { getSurveyImages } from './api/actions'
 // Component
 class Survey extends Component {
 
-  // // Runs on server only for SSR
-  // static fetchData({ store }) {
-  //   return store.dispatch(getCratesList('ASC'))
-  // }
+  // Runs on server only for SSR
+  static fetchData({ store }) {
+    return store.dispatch(getSurveyImages)
+  }
 
   // // Runs on client only
   componentDidMount() {
     console.log('before', this.props)
-    this.props.getSurveyImages()
+    this.props.getSurveyImages({ images: 'it works it works it works' })
     console.log('after', this.props)
   }
 
@@ -115,7 +115,8 @@ class Survey extends Component {
 // Component State
 function listState(state) {
   return {
-    surveyImages: state.survey.surveyImages
+    surveyImages: state.survey.surveyImages,
+    userChoices: state.survey.userChoices
   }
 }
 

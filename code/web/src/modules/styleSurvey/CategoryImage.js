@@ -8,6 +8,7 @@ import { grey, grey2, grey3, grey4, secondary, white } from '../../ui/common/col
 const CategoryImage = (props) => {
   const { children, image, width, height, style, shadow, ...others } = props
   // the conditional will have to be tied to state based on ifClicked
+  // if this.props.userChoices[event.target.category] === event.target.id then change styling
   const boxBorder = (true === true) ? 'none' : `.7em solid ${grey4}`
   return (
     <img

@@ -8,19 +8,21 @@ const surveyInitialState = {
 	isLoading: false,
 	error: null,
 	surveyImages: {},
+	userChoices: {}
 }
 
 export const survey = (state = surveyInitialState, action) => {
 	switch (action.type) {
 		case GET_SURVEY_IMAGES:
-			console.log('survey reducer works', action.surveyImages, 'uhhh')
 			return {
 				...state,
-				surveyImages: action.surveyImages
+				surveyImages: action.surveyImages,
+				error: null,
+				isLoading: action.isLoading,
+				userChoices: action.userChoices
 			}
 
 		default:
-			console.log('survey reducer doesnt work')
 			return state
 	}
 }
