@@ -22,7 +22,7 @@ describe("user queries", () => {
 
   beforeEach(async () => {
     const user1 = {
-      id: 10,
+      id: 1,
       name: "User1",
       email: "user1@email.com",
       password: "user1password",
@@ -33,7 +33,7 @@ describe("user queries", () => {
     };
 
     const user2 = {
-      id: 11,
+      id: 2,
       name: "User2",
       email: "user2@email.com",
       password: "user2password",
@@ -66,5 +66,14 @@ describe("user queries", () => {
       .expect(200)
 
     expect(response.body.data.users.length).toEqual(2)
+  })
+
+  it("return a user with a specific id", async() => {
+    const response = await request(server)
+    .get('/')
+    .send({ query: '{ user(id: 1) { name email } }'})
+    .expect(200)
+
+    expect(response.body.data.user.name).toEqual('User1')
   })
 })
