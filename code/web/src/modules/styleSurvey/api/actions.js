@@ -4,7 +4,7 @@ import { query, mutation } from 'gql-query-builder'
 
 // App Imports
 import { routeApi } from '../../../setup/routes'
-export const SURVEY_GET_SURVEY_ITEMS_REQUEST = 'SURVEY/GET_SURVEY_ITEMS_RESPONSE'
+export const SURVEY_GET_SURVEY_ITEMS_REQUEST = 'SURVEY/GET_SURVEY_ITEMS_REQUEST'
 export const SURVEY_GET_SURVEY_ITEMS_RESPONSE = 'SURVEY/GET_SURVEY_ITEMS_RESPONSE'
 export const SURVEY_GET_SURVEY_ITEMS_FAILURE = 'SURVEY/GET_SURVEY_ITEMS_FAILURE'
 export const GET_SURVEY_IMAGES = 'GET_SURVEY_IMAGES'
@@ -38,12 +38,11 @@ export function getSurveyImages(isLoading = true) {
 		}))
 			.then(response => {
 				if (response.status === 200) {
-					console.log('response', response)
 					dispatch({
 						type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
 						error: null,
 						isLoading: false,
-						surveyImages: response
+						surveyImages: response.data.data.surveyImages
 					})
 				} else {
 					console.error(response)

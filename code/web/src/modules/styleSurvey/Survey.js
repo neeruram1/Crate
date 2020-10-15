@@ -32,6 +32,7 @@ class Survey extends Component {
   componentDidMount() {
     this.props.getSurveyImages()
     console.log('props in survey', this.props)
+    console.log('props in survey2', this.props)
   }
 
   render() {

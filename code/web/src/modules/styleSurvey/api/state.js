@@ -36,12 +36,12 @@ export const survey = (state = surveyInitialState, action) => {
 				error: null
 			}
 		case SURVEY_GET_SURVEY_ITEMS_RESPONSE:
-			console.log('action', action)
+			console.log('action images', action.surveyImages)
 			return {
 				...state,
 				isLoading: false,
 				error: action.error,
-				surveyImages: action.surveyImages // can't recall what state key this is under
+				surveyImages: action.surveyImages
 			}
 		case SURVEY_GET_SURVEY_ITEMS_FAILURE:
 			return {
