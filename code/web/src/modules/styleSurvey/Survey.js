@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import Category from './Category'
 
@@ -10,11 +11,13 @@ import Category from './Category'
 import { Grid, GridCell } from '../../ui/grid'
 import { H3, H4 } from '../../ui/typography'
 import { grey, grey2, secondary } from '../../ui/common/colors'
+import Button from '../../ui/button'
 
 // // App Imports
 // import { getList as getCratesList } from './api/actions'
 import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
+import userRoutes from '../../setup/routes/user'
 // import CrateItem from './Item'
 
 // // API imports
@@ -96,11 +99,13 @@ class Survey extends Component {
           >
             <Category />
           </GridCell>
-
-
-
         </Grid>
-
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{ padding: '3em', textAlign: 'center' }}>
+            <p style={{ marginBottom: '1em', color: grey2 }}>You are an Ol Timey Baseball Player</p>
+            <Button theme="primary" onClick={() => { this.props.history.push(userRoutes.subscriptions.path) }}>Submit</Button>
+          </GridCell>
+        </Grid>
       </div>
     )
   }
@@ -120,4 +125,4 @@ function listState(state) {
   }
 }
 
-export default connect(listState, { getSurveyImages })(Survey)
+export default connect(listState, { getSurveyImages })(withRouter(Survey))
