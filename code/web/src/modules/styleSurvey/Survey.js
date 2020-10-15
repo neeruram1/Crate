@@ -30,9 +30,9 @@ class Survey extends Component {
 
   // // Runs on client only
   componentDidMount() {
-    console.log('before', this.props)
-    this.props.getSurveyImages({ images: 'it works it works it works' })
-    console.log('after', this.props)
+    this.props.getSurveyImages()
+    console.log('props in survey', this.props)
+    console.log('props in survey2', this.props)
   }
 
   render() {
