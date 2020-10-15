@@ -22,6 +22,7 @@ class List extends PureComponent {
   static fetchData({ store }) {
     return store.dispatch(getCratesList('ASC'))
   }
+  // if this is a really easy way to update the store...
 
   // Runs on client only
   componentDidMount() {
@@ -51,14 +52,14 @@ class List extends PureComponent {
           <GridCell>
             {
               this.props.crates.isLoading
-                ? <Loading/>
+                ? <Loading />
                 : this.props.crates.list.length > 0
-                    ? this.props.crates.list.map(crate => (
-                      <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
-                        <CrateItem crate={crate}/>
-                      </div>
-                    ))
-                    : <EmptyMessage message="No crates to show" />
+                  ? this.props.crates.list.map(crate => (
+                    <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
+                      <CrateItem crate={crate} />
+                    </div>
+                  ))
+                  : <EmptyMessage message="No crates to show" />
             }
           </GridCell>
         </Grid>
