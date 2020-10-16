@@ -8,6 +8,7 @@ export const SURVEY_GET_SURVEY_ITEMS_REQUEST = 'SURVEY/GET_SURVEY_ITEMS_REQUEST'
 export const SURVEY_GET_SURVEY_ITEMS_RESPONSE = 'SURVEY/GET_SURVEY_ITEMS_RESPONSE'
 export const SURVEY_GET_SURVEY_ITEMS_FAILURE = 'SURVEY/GET_SURVEY_ITEMS_FAILURE'
 export const GET_SURVEY_IMAGES = 'GET_SURVEY_IMAGES'
+export const SURVEY_SELECT_IMAGE = 'SURVEY/SELECT_IMAGE'
 
 // export function getSurveyImages(isLoading = true, forceRefresh = false) {
 // 	return dispatch => {
@@ -56,4 +57,14 @@ export function getSurveyImages(isLoading = true) {
 				})
 			})
 	}
+}
+
+export function selectImage(category, style) {
+  return dispatch => {
+    dispatch({
+      type: SURVEY_SELECT_IMAGE,
+      category: category,
+      style: style
+    })
+  }
 }

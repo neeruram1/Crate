@@ -140,11 +140,8 @@ class Survey extends Component {
         </Grid>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
-            <p style={{ marginBottom: '1em', color: grey2 }}>You are an Ol Timey Baseball Player</p>
             <Button theme="primary" onClick={() => { this.props.history.push(userRoutes.subscriptions.path) }}>Submit</Button>
-            {this.props.surveyImages[0] &&
-              <h1>{this.props.surveyImages[0].style}</h1>
-            }
+            <H3 style={{ marginTop: '1em', color: grey2 }}>You are an Ol Timey Baseball Player</H3>
           </GridCell>
         </Grid>
       </div>
