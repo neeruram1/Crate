@@ -129,7 +129,7 @@ module.exports = {
         altText: 'Darth Vader',
         style: 'Covid Couture',
         category: 'role model',
-        image: '/images/survey/role_model/darth_vader.jpg',
+        image: '/images/survey/role_model/darth_vader.jpeg',
         createdAt: new Date(),
         updatedAt: new Date()
         },
