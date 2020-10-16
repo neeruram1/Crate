@@ -2,15 +2,17 @@
 import {
 	SURVEY_GET_SURVEY_ITEMS_REQUEST,
 	SURVEY_GET_SURVEY_ITEMS_RESPONSE,
-	SURVEY_GET_SURVEY_ITEMS_FAILURE
+  SURVEY_GET_SURVEY_ITEMS_FAILURE,
+  SURVEY_SELECT_IMAGE
 } from './actions'
+import state from '../../common/api/state'
 
 // Initial State
 const surveyInitialState = {
 	isLoading: false,
 	error: null,
 	surveyImages: {},
-	userChoices: { 'RoleModel': 0, 'AlternateUniverse': 0, 'SuperPower': 0, 'Vacation': 0, 'DreamHome': 0, 'Soup': 0 }
+  userChoices: { 'vacation': '', 'superpower': '', 'soup': '', 'role model': '', 'home': '', 'alternate universe': '' }
 }
 
 // export const survey = (state = surveyInitialState, action) => {
@@ -47,7 +49,17 @@ export const survey = (state = surveyInitialState, action) => {
 				...state,
 				isLoading: false,
 				error: action.error
-			}
+      }
+    case SURVEY_SELECT_IMAGE:
+      let newUserChoices = state.userChoices
+      newUserChoices[action.category] = action.style
+      console.log('is this happening', newUserChoices)
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        userChoices: newUserChoices
+      }
 		default:
 			return state
 	}
