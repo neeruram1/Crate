@@ -36,7 +36,6 @@ export const survey = (state = surveyInitialState, action) => {
 				error: null
 			}
 		case SURVEY_GET_SURVEY_ITEMS_RESPONSE:
-			console.log('action images', action.surveyImages)
 			return {
 				...state,
 				isLoading: false,

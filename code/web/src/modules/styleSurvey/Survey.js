@@ -37,9 +37,47 @@ class Survey extends Component {
     console.log('props in survey', this.props)
   }
 
-  render() {
-    return (
+  organizeCategories() {
+    let organizedCategories;
+    if(this.props.surveyImages[1]) {
+      organizedCategories = this.props.surveyImages.reduce((categories, image) => { 
+        if (!categories[image.category]) {
+          categories[image.category] = [image]
+        } else {
+          categories[image.category].push(image)
+        }
+        return categories
+      }, {})
+      organizedCategories = Object.values(organizedCategories).filter(category => category.length === 6)
+   
+    } 
+    return organizedCategories
+  }
 
+  renderCategories() {
+    const organizedCategories = this.organizeCategories()
+    console.log('derp', organizedCategories)
+    if(organizedCategories) {
+      return organizedCategories.map(category => {
+        return (
+          <GridCell
+          gutter={true}
+          style={{
+            width: 'auto'
+          }}
+          >
+          <Category surveyImages={category} />
+        </GridCell>
+      )
+    })
+    }
+
+  }
+
+  render() {
+    let renderedCategories = this.renderCategories()
+    console.log('rendered', renderedCategories)
+    return (
       <div>
 
         <Grid style={{ backgroundColor: grey }}>
@@ -50,7 +88,8 @@ class Survey extends Component {
           </GridCell>
         </Grid>
         <Grid>
-          <GridCell
+          {renderedCategories}
+          {/* <GridCell
             gutter={true}
             style={{
               width: 'auto'
@@ -97,12 +136,15 @@ class Survey extends Component {
             }}
           >
             <Category />
-          </GridCell>
+          </GridCell> */}
         </Grid>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
             <p style={{ marginBottom: '1em', color: grey2 }}>You are an Ol Timey Baseball Player</p>
             <Button theme="primary" onClick={() => { this.props.history.push(userRoutes.subscriptions.path) }}>Submit</Button>
+            {this.props.surveyImages[0] &&
+              <h1>{this.props.surveyImages[0].style}</h1>
+            }
           </GridCell>
         </Grid>
       </div>

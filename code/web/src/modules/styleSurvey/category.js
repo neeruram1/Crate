@@ -8,18 +8,23 @@ import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
 import CategoryImage from './CategoryImage'
 
 class Category extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  // // Runs on server only for SSR
-  // static fetchData({ store }) {
-  //   return store.dispatch(getCratesList('ASC'))
-  // }
+    // // Runs on server only for SSR
+    // static fetchData({ store }) {
+    //   return store.dispatch(getCratesList('ASC'))
+    // }
 
-  // // Runs on client only
-  // componentDidMount() {
-  //   this.props.getCratesList('ASC')
-  // }
+    // // Runs on client only
+    // componentDidMount() {
+    //   this.props.getCratesList('ASC')
+    // }
 
   render() {
+
+    console.log('prooooops', this.props)
     const imgTile = [1, 2, 3, 4, 5, 6]
     const selections = imgTile.map(image => {
       return (
