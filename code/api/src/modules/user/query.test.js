@@ -76,4 +76,13 @@ describe("user queries", () => {
 
     expect(response.body.data.user.name).toEqual('User1')
   })
+
+  it("updates a user style", async() => {
+    const response = await request(server)
+    .post('/')
+    .send({ query: 'mutation { updateStyle(id: 1, style: "covid couture") { style name email } }'})
+    .expect(200)
+
+    expect(response.body.data.updateStyle.style).toEqual('covid couture')
+  })
 })
