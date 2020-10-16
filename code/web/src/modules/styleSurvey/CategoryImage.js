@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
 import { grey, grey2, grey3, grey4, secondary, white } from '../../ui/common/colors'
+import { APP_URL_API } from '../../setup/config/env'
 
 // Component
 const CategoryImage = (props) => {
@@ -12,7 +13,7 @@ const CategoryImage = (props) => {
   const boxBorder = (true === true) ? 'none' : `.7em solid ${grey4}`
   return (
     <img
-      src={`${image}`}
+      src={ `${APP_URL_API}${image.image}`}
       style={{
         width: '15em',
         boxShadow: `${level3}`,
