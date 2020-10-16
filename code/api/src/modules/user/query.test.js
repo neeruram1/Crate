@@ -23,24 +23,24 @@ describe("user queries", () => {
   beforeEach(async () => {
     const user1 = {
       id: 1,
-      name: "User1",
-      email: "user1@email.com",
-      password: "user1password",
+      name: "user1",
+      email: "litjanee@email.com",
+      password: "password",
       role: "USER",
       createdAt: new Date(),
       updatedAt: new Date(),
-      style: "Hip Hop but Punk"
+      style: "Old Timey Baseball Player"
     };
 
     const user2 = {
       id: 2,
-      name: "User2",
-      email: "user2@email.com",
-      password: "user2password",
+      name: "user2",
+      email: "whitegreeneram@email.com",
+      password: "password2",
       role: "USER",
       createdAt: new Date(),
       updatedAt: new Date(),
-      style: "Casual"
+      style: "Lumberjack Hipster"
     };
 
     await models.User.create(user1);
@@ -48,7 +48,7 @@ describe("user queries", () => {
   })
 
   afterEach(async () => {
-    await models.User.destroy({ where: { name: ["User1", "User2"] } })
+    await models.User.destroy({ where: { name: ["user1", "user2"] } })
   })
 
   afterAll(() => {
@@ -74,7 +74,7 @@ describe("user queries", () => {
     .send({ query: '{ user(id: 1) { name email } }'})
     .expect(200)
 
-    expect(response.body.data.user.name).toEqual('User1')
+    expect(response.body.data.user.name).toEqual('user1')
   })
 
   it("updates a user style", async() => {
