@@ -8,20 +8,25 @@ import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
 import CategoryImage from './CategoryImage'
 
 class Category extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  // // Runs on server only for SSR
-  // static fetchData({ store }) {
-  //   return store.dispatch(getCratesList('ASC'))
-  // }
+    // // Runs on server only for SSR
+    // static fetchData({ store }) {
+    //   return store.dispatch(getCratesList('ASC'))
+    // }
 
-  // // Runs on client only
-  // componentDidMount() {
-  //   this.props.getCratesList('ASC')
-  // }
+    // // Runs on client only
+    // componentDidMount() {
+    //   this.props.getCratesList('ASC')
+    // }
 
   render() {
+
+    console.log('prooooops', this.props)
     const imgTile = [1, 2, 3, 4, 5, 6]
-    const selections = imgTile.map(image => {
+    const selections = this.props.surveyImages.map((image, i) => {
       return (
         <GridCell
           justifyRight={true}
@@ -31,9 +36,8 @@ class Category extends Component {
           }}
         >
           <CategoryImage
-            id='Tyler'
-            category='Camping-Tyler'
-            image={'https://media-exp1.licdn.com/dms/image/C4E03AQFcLZyfrjwZkA/profile-displayphoto-shrink_200_200/0?e=1603324800&v=beta&t=VMxP_bu_kZ5FjXqIEMFAruFcv8P84hPo5ObkBJw1GpY'}
+            key={i}
+            image={image}
           />
         </GridCell>
       )
@@ -53,7 +57,7 @@ class Category extends Component {
             padding: '2vh 0',
             textAlign: 'center',
           }}>
-            <H4 font="secondary">Category Name</H4>
+            <H4 font="secondary">{this.props.surveyImages[0].category}</H4>
           </GridCell>
         </Grid >
         <Grid
