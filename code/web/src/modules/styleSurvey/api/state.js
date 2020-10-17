@@ -35,16 +35,16 @@ export const survey = (state = surveyInitialState, action) => {
 				...state,
 				isLoading: false,
 				error: action.error
-			}
-		case SURVEY_SELECT_IMAGE:
-			let newUserChoices = state.userChoices
-			newUserChoices[action.category] = action.style
-			return {
-				...state,
-				isLoading: false,
-				error: null,
-				userChoices: newUserChoices
-			}
+      }
+    case SURVEY_SELECT_IMAGE:
+      let newUserChoices = state.userChoices
+      newUserChoices[action.category] = action.style
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        userChoices: newUserChoices
+      }
 		default:
 			return state
 	}
