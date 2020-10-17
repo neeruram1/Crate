@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Grid, GridCell } from '../../ui/grid'
-import { H3, H4 } from '../../ui/typography'
+import { H4 } from '../../ui/typography'
 import { grey, grey2, grey3, secondary, white } from '../../ui/common/colors'
 import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
 import CategoryImage from './CategoryImage'
@@ -12,20 +12,7 @@ class Category extends Component {
     super(props)
   }
 
-    // // Runs on server only for SSR
-    // static fetchData({ store }) {
-    //   return store.dispatch(getCratesList('ASC'))
-    // }
-
-    // // Runs on client only
-    // componentDidMount() {
-    //   this.props.getCratesList('ASC')
-    // }
-
   render() {
-
-    console.log('prooooops', this.props)
-    const imgTile = [1, 2, 3, 4, 5, 6]
     const selections = this.props.surveyImages.map((image, i) => {
       return (
         <GridCell
@@ -42,6 +29,7 @@ class Category extends Component {
         </GridCell>
       )
     })
+
     return (
       <div style={{
         border: `1em solid ${grey2}`,
@@ -77,7 +65,7 @@ class Category extends Component {
 }
 
 // Component Properties
-// List.propTypes = {
+// Category.propTypes = {
 //   crates: PropTypes.object.isRequired,
 //   getCratesList: PropTypes.func.isRequired
 // }

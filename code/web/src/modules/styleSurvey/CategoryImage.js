@@ -10,8 +10,6 @@ import { connect } from 'react-redux'
 // Component
 const CategoryImage = (props) => {
   const { image, category, style } = props.image
-  // the conditional will have to be tied to state based on ifClicked
-  // if this.props.userChoices[event.target.category] === event.target.id then change styling
   const boxBorder = (true === true) ? 'none' : `.7em solid ${grey4}`
   return (
     <img
@@ -32,7 +30,7 @@ const CategoryImage = (props) => {
 }
 
 // Component Properties
-// Tile.propTypes = {
+// CategoryImage.propTypes = {
 //   image: PropTypes.string.isRequired,
 //   style: PropTypes.object,
 //   width: PropTypes.number,
