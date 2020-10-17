@@ -18,7 +18,8 @@ import EmptyMessage from '../common/EmptyMessage'
 import userRoutes from '../../setup/routes/user'
 
 // // API imports
-import { getSurveyImages } from './api/actions'
+import { getSurveyImages, postUserStyle } from './api/actions'
+
 
 // Component
 class Survey extends Component {
@@ -86,25 +87,27 @@ class Survey extends Component {
   }, {})
   return styles
 }
-
   determineResults(choicesObject) {
     let userChoices = this.sortChoices(choicesObject)
     const highestVote = Math.max(...Object.values(userChoices))
     const topPicks = Object.keys(userChoices).filter(choice => {
       return userChoices[choice] === highestVote
     })
-    return (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
+    const result = (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
+    console.log('result1', result)
+    console.log('result2', { id: this.props.user.details.id, style: result })
+    postUserStyle({ id: this.props.user.details.id, style: result })
+    return result
   }
 
   checkInputs = () => {
     return Object.values(this.props.userChoices).every(choice => choice !== '')
   }
 
-  completeSurvey = () => {
+  completeSurvey = (result) => {
     if(this.checkInputs()) {
       this.setState({ completed: true })
-    } else {
-      return false
+
     }
   }
 
@@ -131,7 +134,7 @@ class Survey extends Component {
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
             {!this.state.completed ? 
               <Button theme="primary"
-              onClick={this.completeSurvey}>Submit
+              onClick={() => this.completeSurvey(result)}>Submit
               </Button>
               :
               <div>
@@ -156,16 +159,18 @@ class Survey extends Component {
 }
 
 // Component Properties
-// Survey.propTypes = {
-//   crates: PropTypes.object.isRequired,
-//   getCratesList: PropTypes.func.isRequired
-// }
+Survey.propTypes = {
+  surveyImages: PropTypes.array.isRequired,
+  userChoices: PropTypes.object.isRequired
+}
+
 
 // Component State
 function listState(state) {
   return {
     surveyImages: state.survey.surveyImages,
-    userChoices: state.survey.userChoices
+    userChoices: state.survey.userChoices,
+    user: state.user
   }
 }
 
