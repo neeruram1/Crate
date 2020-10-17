@@ -3,7 +3,7 @@ import { survey } from './state'
 
 describe('survey reducer', () => {
   let surveyInitialState, state, SURVEY_GET_SURVEY_ITEMS_REQUEST, SURVEY_GET_SURVEY_ITEMS_RESPONSE, SURVEY_GET_SURVEY_ITEMS_FAILURE,
-    SURVEY_SELECT_IMAGE, GET_SURVEY_IMAGES;
+    SURVEY_SELECT_IMAGE, GET_SURVEY_IMAGES, response;
   beforeEach(() => {
 
     surveyInitialState = {
@@ -16,6 +16,8 @@ describe('survey reducer', () => {
     SURVEY_GET_SURVEY_ITEMS_RESPONSE = 'SURVEY/GET_SURVEY_ITEMS_RESPONSE'
     SURVEY_GET_SURVEY_ITEMS_FAILURE = 'SURVEY/GET_SURVEY_ITEMS_FAILURE'
     GET_SURVEY_IMAGES = 'GET_SURVEY_IMAGES'
+
+    response = {response: {data: {data: {surveyImages:}}}
   })
   it('should return the initial state if action.type has no match', () => {
     expect(survey(surveyInitialState,{})).toEqual({
@@ -37,19 +39,19 @@ describe('survey reducer', () => {
       error: null
     })
   })
-  // it('should handle a survey response', async () => {
-  //   const action = {
-  //     type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
-  //     error: null,
-  //     isLoading: false,
-  //     surveyImages: response.data.data.surveyImages
-  //   }
+  it('should handle a survey response', async () => {
+    const action = {
+      type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
+      error: null,
+      isLoading: false,
+      surveyImages: response.data.data.surveyImages
+    }
 
-  //   await expect(survey(state = surveyInitialState, action)).toEqual({
-  //     ...state,
-  //     isLoading: false,
-  //     error: action.error,
-  //     surveyImages: action.surveyImages
-  //   })
-  // })
+    await expect(survey(state = surveyInitialState, action)).toEqual({
+      ...state,
+      isLoading: false,
+      error: action.error,
+      surveyImages: action.surveyImages
+    })
+  })
 })

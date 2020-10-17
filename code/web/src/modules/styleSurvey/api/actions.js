@@ -54,3 +54,13 @@ export function selectImage(category, style) {
     })
   }
 }
+
+export function postUserStyle(userInfo) {
+  return dispatch => {
+    return axios.post(routeApi, mutation({
+      operation: 'updateStyle',
+      variables: userInfo,
+      fields: ['id', 'style']
+    }))
+  }
+}
