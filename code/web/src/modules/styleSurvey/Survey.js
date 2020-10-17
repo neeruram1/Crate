@@ -21,7 +21,7 @@ import userRoutes from '../../setup/routes/user'
 // import CrateItem from './Item'
 
 // // API imports
-import { getSurveyImages } from './api/actions'
+import { getSurveyImages, postUserStyle } from './api/actions'
 
 // Component
 class Survey extends Component {
@@ -39,8 +39,8 @@ class Survey extends Component {
 
   organizeCategories() {
     let organizedCategories;
-    if(this.props.surveyImages[1]) {
-      organizedCategories = this.props.surveyImages.reduce((categories, image) => { 
+    if (this.props.surveyImages[1]) {
+      organizedCategories = this.props.surveyImages.reduce((categories, image) => {
         if (!categories[image.category]) {
           categories[image.category] = [image]
         } else {
@@ -49,27 +49,27 @@ class Survey extends Component {
         return categories
       }, {})
       organizedCategories = Object.values(organizedCategories).filter(category => category.length === 6)
-   
-    } 
+
+    }
     return organizedCategories
   }
 
   renderCategories() {
     const organizedCategories = this.organizeCategories()
     console.log('derp', organizedCategories)
-    if(organizedCategories) {
+    if (organizedCategories) {
       return organizedCategories.map(category => {
         return (
           <GridCell
-          gutter={true}
-          style={{
-            width: 'auto'
-          }}
+            gutter={true}
+            style={{
+              width: 'auto'
+            }}
           >
-          <Category surveyImages={category} />
-        </GridCell>
-      )
-    })
+            <Category surveyImages={category} />
+          </GridCell>
+        )
+      })
     }
 
   }
@@ -140,11 +140,17 @@ class Survey extends Component {
         </Grid>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
-            <Button theme="primary" onClick={() => { this.props.history.push(userRoutes.subscriptions.path) }}>Submit</Button>
+            <Button theme="primary"
+              onClick={() => {
+                this.props.history.push(userRoutes.subscriptions.path)
+                console.log('on button click', { id: this.props.user.details.id, style: 'test style' })
+                postUserStyle({ id: this.props.user.details.id, style: 'test style' })
+              }}
+            >Submit</Button>
             <H3 style={{ marginTop: '1em', color: grey2 }}>You are an Ol Timey Baseball Player</H3>
           </GridCell>
         </Grid>
-      </div>
+      </div >
     )
   }
 }
@@ -159,8 +165,9 @@ class Survey extends Component {
 function listState(state) {
   return {
     surveyImages: state.survey.surveyImages,
-    userChoices: state.survey.userChoices
+    userChoices: state.survey.userChoices,
+    user: state.user
   }
 }
 
-export default connect(listState, { getSurveyImages })(withRouter(Survey))
+export default connect(listState, { getSurveyImages, postUserStyle })(withRouter(Survey))
