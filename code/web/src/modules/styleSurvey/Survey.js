@@ -59,7 +59,6 @@ class Survey extends Component {
 
   renderCategories() {
     const organizedCategories = this.organizeCategories()
-    console.log('derp', organizedCategories)
     if (organizedCategories) {
       return organizedCategories.map(category => {
         return (
@@ -94,10 +93,7 @@ class Survey extends Component {
     const topPicks = Object.keys(userChoices).filter(choice => {
       return userChoices[choice] === highestVote
     })
-    const result = (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
-    // console.log('result1', result)
-    // console.log('result2', { id: this.props.user.details.id, style: result })
-    // postUserStyle({ id: this.props.user.details.id, style: result })
+    const result = (topPicks.length === 1) ? topPicks[0] : 'Ol Timey Baseball Player'
     return result
   }
 
@@ -117,7 +113,6 @@ class Survey extends Component {
     let checkedInputs = this.checkInputs()
     const result = this.determineResults(this.props.userChoices)
 
-    console.log('rendered', renderedCategories)
     return (
       <div>
 

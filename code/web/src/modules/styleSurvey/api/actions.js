@@ -56,7 +56,6 @@ export function selectImage(category, style) {
 }
 
 export function postUserStyle(userInfo) {
-	console.log("postUserStyle -> userInfo", userInfo)
 	return axios.post(routeApi, mutation({
 		operation: 'updateStyle',
 		variables: userInfo,
@@ -66,23 +65,3 @@ export function postUserStyle(userInfo) {
 			console.error(error)
 		})
 }
-
-// .then(response => {
-// 	if (response.status === 200) {
-// 		dispatch({
-// 			type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
-// 			error: null,
-// 			isLoading: false,
-// 			surveyImages: response.data.data.surveyImages
-// 		})
-// 	} else {
-// 		console.error(response)
-// 	}
-// })
-// 	.catch(error => {
-// 		dispatch({
-// 			type: SURVEY_GET_SURVEY_ITEMS_FAILURE,
-// 			error: 'Some error occurred. Please try again.',
-// 			isLoading: false
-// 		})
-// 	})

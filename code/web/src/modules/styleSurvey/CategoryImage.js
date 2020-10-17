@@ -10,10 +10,12 @@ import { connect } from 'react-redux'
 // Component
 const CategoryImage = (props) => {
   const { image, category, style } = props.image
-  const boxBorder = (true === true) ? 'none' : `.7em solid ${grey4}`
+
+  let isSelected = props.userChoices[category] === style ? 'selected' : 'not selected'
+  const boxBorder = (!props.userChoices[category] === style) ? 'none' : `.7em solid ${grey4}`
   return (
     <img
-      src={ `${APP_URL_API}${image}`}
+      src={`${APP_URL_API}${image}`}
       style={{
         width: '15em',
         boxShadow: `${level3}`,
@@ -23,6 +25,7 @@ const CategoryImage = (props) => {
       }}
       onClick={() => {
         props.selectImage(category, style)
+        console.log('props.userChoices[category]', props.userChoices[category], 'style', style)
       }}
     >
     </img>
