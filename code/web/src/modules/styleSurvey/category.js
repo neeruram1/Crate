@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Grid, GridCell } from '../../ui/grid'
 import { H4 } from '../../ui/typography'
-import { grey, grey2, grey3, secondary, white, primaryAccent, secondaryAccent } from '../../ui/common/colors'
-import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
+import { grey, primaryAccent } from '../../ui/common/colors'
+import { level4 } from '../../ui/common/shadows'
 import CategoryImage from './CategoryImage'
 
 class Category extends Component {
@@ -16,6 +15,7 @@ class Category extends Component {
     const selections = this.props.surveyImages.map((image, i) => {
       return (
         <GridCell
+          key={i}
           justifyRight={true}
           gutter={false}
           style={{
@@ -58,23 +58,14 @@ class Category extends Component {
         >
           {selections}
         </Grid>
-
       </div>
     )
   }
 }
 
 // Component Properties
-// Category.propTypes = {
-//   crates: PropTypes.object.isRequired,
-//   getCratesList: PropTypes.func.isRequired
-// }
-
-// Component State
-function listState(state) {
-  return {
-    crates: state.crates
-  }
+Category.propTypes = {
+  surveyImages: PropTypes.array.isRequired,
 }
 
-export default connect(listState, null)(Category)
+export default Category
