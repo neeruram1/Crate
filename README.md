@@ -28,14 +28,19 @@ For the front end students, this was their first time using Redux, axios, expres
 <p align="center">
 <img src="https://i.imgur.com/p2INrLf.jpg">
 </p>
+
 ## Queries
+
 <p align="center">
 <img src="https://i.imgur.com/ngUBDY6.png">
 </p>
+
 ## Mutations
+
 <p align="center">
 <img src="https://i.imgur.com/TeBLMJo.png">
 </p>
+
 #### Get monthly subscription of trendy clothes and accessories.
 - **API** built with Node, GraphQL, Express, Sequelize (MySQL) and JWT Auth
 - **WebApp** built with React and Redux along with Server Side Rendering (SSR) / SEO friendly
