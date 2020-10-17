@@ -21,6 +21,7 @@ const CategoryImage = (props) => {
         boxShadow: `${level3}`,
         border: `${boxBorder}`,
         borderRadius: '.2em',
+        cursor: 'pointer'
       }}
       onClick={() => {
         props.selectImage(category, style)
