@@ -2,19 +2,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Category from './Category'
 
 
 // // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
 import { H3 } from '../../ui/typography'
-import { grey, grey2, secondary } from '../../ui/common/colors'
+import { grey, grey2 } from '../../ui/common/colors'
 import Button from '../../ui/button'
 
 // // App Imports
-import Loading from '../common/Loading'
-import EmptyMessage from '../common/EmptyMessage'
 import userRoutes from '../../setup/routes/user'
 
 // // API imports
@@ -60,15 +58,16 @@ class Survey extends Component {
   renderCategories() {
     const organizedCategories = this.organizeCategories()
     if (organizedCategories) {
-      return organizedCategories.map(category => {
+      return organizedCategories.map((category, index)=> {
         return (
           <GridCell
+            key={index}
             gutter={true}
             style={{
               width: 'auto'
             }}
           >
-            <Category surveyImages={category} />
+            <Category key={index} surveyImages={category} />
           </GridCell>
         )
       })
@@ -112,6 +111,7 @@ class Survey extends Component {
     let renderedCategories = this.renderCategories()
     let checkedInputs = this.checkInputs()
     const result = this.determineResults(this.props.userChoices)
+    console.log(typeof this.props.surveyImages, 'survey images')
 
     return (
       <div>
@@ -161,7 +161,7 @@ class Survey extends Component {
 
 // Component Properties
 Survey.propTypes = {
-  surveyImages: PropTypes.array.isRequired,
+  // surveyImages: PropTypes.object,
   userChoices: PropTypes.object.isRequired
 }
 
