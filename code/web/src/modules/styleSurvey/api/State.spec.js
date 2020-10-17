@@ -3,7 +3,9 @@ import { survey } from './state'
 
 describe('survey reducer', () => {
   let surveyInitialState, state, SURVEY_GET_SURVEY_ITEMS_REQUEST, SURVEY_GET_SURVEY_ITEMS_RESPONSE, SURVEY_GET_SURVEY_ITEMS_FAILURE,
+
     SURVEY_SELECT_IMAGE, GET_SURVEY_IMAGES, response;
+
   beforeEach(() => {
 
     surveyInitialState = {
@@ -39,6 +41,7 @@ describe('survey reducer', () => {
       }
     }
   })
+  
   it('should return the initial state if action.type has no match', () => {
     expect(survey(surveyInitialState,{})).toEqual({
       isLoading: false,
@@ -47,6 +50,7 @@ describe('survey reducer', () => {
       userChoices: { 'vacation': '', 'superpower': '', 'soup': '', 'role model': '', 'home': '', 'alternate universe': '' }
     })
   })
+  
   it('should handle get survey items request', () => {
     const action = {
       type: SURVEY_GET_SURVEY_ITEMS_REQUEST,
@@ -59,6 +63,7 @@ describe('survey reducer', () => {
       error: null
     })
   })
+  
   it('should handle a survey response', async () => {
     const action = {
       type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
@@ -74,6 +79,7 @@ describe('survey reducer', () => {
       surveyImages: action.surveyImages
     })
   })
+
   it('should handle a failed response', () => {
     const action = {
       type: SURVEY_GET_SURVEY_ITEMS_FAILURE,
