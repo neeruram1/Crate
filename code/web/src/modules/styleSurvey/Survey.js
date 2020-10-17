@@ -101,16 +101,18 @@ class Survey extends Component {
     return (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
   }
 
-  checkInputs() {
-    
+  checkInputs = () => {
+    // console.log('this is in checkInputs', Object.values(this.props.userChoices).every(choice => choice !== ''))
     return Object.values(this.props.userChoices).every(choice => choice !== '')
   }
 
-  completeSurvey() {
-    if(checkInputs()) {
-
+  completeSurvey = () => {
+    // console.log('inside completeSurvey', this)
+    // const checked = Object.values(this.props.userChoices).every(choice => choice !== '')
+    if(this.checkInputs()) {
       this.setState({ completed: true })
     } else {
+      console.log('derppppppp')
       return false
     }
   }
@@ -119,7 +121,7 @@ class Survey extends Component {
     let renderedCategories = this.renderCategories()
     let checkedInputs = this.checkInputs()
     const result = this.determineResults(this.props.userChoices)
-    console.log('checkInputs', checkedInputs)
+  
     console.log('rendered', renderedCategories)
     return (
       <div>
@@ -139,12 +141,12 @@ class Survey extends Component {
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
             {!this.state.completed ? 
               <Button theme="primary"
-              onClick={() => { this.setState({ completed: true }) }}>Submit
+              onClick={this.completeSurvey}>Submit
               </Button>
               :
               <div>
                 <Button theme="primary" 
-                onClick={() => { determineResults(this.props.userChoices)  }}>Finish
+                  onClick={() => { this.props.history.push(userRoutes.subscriptions.path)  }}>Finish
                 </Button>
                 <H3 style={{ marginTop: '1em', color: grey2 }}>{result} you bumbpkin!</H3>
 
