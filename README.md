@@ -24,6 +24,22 @@ BE:
 
 For the front end students, this was their first time using Redux, axios, express, and GraphQL, and for the back end students this was this was their first time using JavaScript, Node.js, express, Sequelize, and GraphQL. This is also the first cross-pollination project for all students involved and an Agile workflow was used to ensure a high level of code-quality and communication. The project was tracked using Github Projects.
 
+## Survey Display
+
+![Top of Survey](./readme_assets/surveyTop.png)
+
+![Middle of Survey](./readme_assets/surveyMid.png)
+
+![Bottom of Survey](./readme_assets/surveyBot.png)
+
+![Finished Survey](./readme_assets/surveyDone.png)
+
+A user can navigate to the survey page by clicking on the +subscribe button on a carate.
+
+The user can then click images in each category and then press the submit button to see the results of their survey.
+
+When the user clicks the finish button, the survey results are sent to the server and the user is taken to the subscriptions page.
+
 ## Project Structure
 <p align="center">
 <img src="https://i.imgur.com/p2INrLf.jpg">
