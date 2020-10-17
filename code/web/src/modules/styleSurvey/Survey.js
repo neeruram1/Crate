@@ -3,22 +3,19 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
 import Category from './Category'
 
 
 // // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
-import { H3, H4 } from '../../ui/typography'
+import { H3 } from '../../ui/typography'
 import { grey, grey2, secondary } from '../../ui/common/colors'
 import Button from '../../ui/button'
 
 // // App Imports
-// import { getList as getCratesList } from './api/actions'
 import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
 import userRoutes from '../../setup/routes/user'
-// import CrateItem from './Item'
 
 // // API imports
 import { getSurveyImages } from './api/actions'
@@ -40,7 +37,6 @@ class Survey extends Component {
   // // Runs on client only
   componentDidMount() {
     this.props.getSurveyImages()
-    console.log('props in survey', this.props)
   }
 
   organizeCategories() {
@@ -67,15 +63,15 @@ class Survey extends Component {
       return organizedCategories.map(category => {
         return (
           <GridCell
-          gutter={true}
-          style={{
+            gutter={true}
+            style={{
             width: 'auto'
           }}
           >
           <Category surveyImages={category} />
         </GridCell>
-      )
-    })
+        )
+      })
     }
   }
 
@@ -97,22 +93,17 @@ class Survey extends Component {
     const topPicks = Object.keys(userChoices).filter(choice => {
       return userChoices[choice] === highestVote
     })
-    // this.props.history.push(userRoutes.subscriptions.path)
     return (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
   }
 
   checkInputs = () => {
-    // console.log('this is in checkInputs', Object.values(this.props.userChoices).every(choice => choice !== ''))
     return Object.values(this.props.userChoices).every(choice => choice !== '')
   }
 
   completeSurvey = () => {
-    // console.log('inside completeSurvey', this)
-    // const checked = Object.values(this.props.userChoices).every(choice => choice !== '')
     if(this.checkInputs()) {
       this.setState({ completed: true })
     } else {
-      console.log('derppppppp')
       return false
     }
   }
@@ -135,7 +126,6 @@ class Survey extends Component {
         </Grid>
         <Grid>
           {renderedCategories}
-        
         </Grid>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
@@ -148,12 +138,16 @@ class Survey extends Component {
                 <Button theme="primary" 
                   onClick={() => { this.props.history.push(userRoutes.subscriptions.path)  }}>Finish
                 </Button>
-                <H3 style={{ marginTop: '1em', color: grey2 }}>{result} you bumbpkin!</H3>
-
+                <H3 
+                  style={{ 
+                    marginTop: '1em', 
+                    color: grey2 
+                  }}
+                >
+                  Your style was {result}!!!
+                </H3>
               </div>
             }
-            
-            
           </GridCell>
         </Grid>
       </div>
@@ -162,7 +156,7 @@ class Survey extends Component {
 }
 
 // Component Properties
-// List.propTypes = {
+// Survey.propTypes = {
 //   crates: PropTypes.object.isRequired,
 //   getCratesList: PropTypes.func.isRequired
 // }
