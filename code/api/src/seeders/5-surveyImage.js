@@ -223,7 +223,7 @@ module.exports = {
         },
       {
         altText: 'Bright colored horses, rainbows and dogs with the title Lisa Frank',
-        style: 'Sassy and Classy',
+        style: 'Classy and Sassy',
         category: 'superpower',
         image: '/images/survey/superpower/lisa_frank.jpg',
         createdAt: new Date(),
@@ -271,7 +271,7 @@ module.exports = {
         },
       {
         altText: 'Skyline of New York City',
-        style: 'Sassy and Classy',
+        style: 'Classy and Sassy',
         category: 'vacation',
         image: '/images/survey/vacation/nyc.jpeg',
         createdAt: new Date(),
