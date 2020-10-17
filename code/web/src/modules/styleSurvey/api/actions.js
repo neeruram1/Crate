@@ -10,20 +10,6 @@ export const SURVEY_GET_SURVEY_ITEMS_FAILURE = 'SURVEY/GET_SURVEY_ITEMS_FAILURE'
 export const GET_SURVEY_IMAGES = 'GET_SURVEY_IMAGES'
 export const SURVEY_SELECT_IMAGE = 'SURVEY/SELECT_IMAGE'
 
-// export function getSurveyImages(isLoading = true, forceRefresh = false) {
-// 	return dispatch => {
-// 		dispatch({
-// 			type: 'GET_SURVEY_IMAGES',
-// 			isLoading: false,
-// 			error: null,
-// 			surveyImages: surveyImages
-// 		})
-// 	}
-// }
-
-
-
-// Actions
 // Get list of SURVEY ITEMS
 export function getSurveyImages(isLoading = true) {
 	return dispatch => {
