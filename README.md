@@ -34,11 +34,11 @@ For the front end students, this was their first time using Redux, axios, expres
 
 ![Finished Survey](./readme_assets/surveyDone.png)
 
-A user can navigate to the survey page by clicking on the +subscribe button on a carate.
+* A user can navigate to the survey page by clicking on the +subscribe button on a carate.
 
-The user can then click images in each category and then press the submit button to see the results of their survey.
+* The user can then click images in each category and then press the submit button to see the results of their survey.
 
-When the user clicks the finish button, the survey results are sent to the server and the user is taken to the subscriptions page.
+* When the user clicks the finish button, the survey results are sent to the server and the user is taken to the subscriptions page.
 
 ## Project Structure
 <p align="center">
