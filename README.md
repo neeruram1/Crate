@@ -2,13 +2,46 @@
 
 # Crate 👕👖📦
 
+## Introduction
+This project explores an existing open source brownfield codebase.  Crate is a platform, similar to Stitch Fix, that allows users to setup monthly subscriptions to receive trendy clothes and accessories. The team set out exploring the codebase in order to add test coverage, fix bugs, and extend the current functionality. We aimed to learn and apply strategies for understanding how to analyze a larger, existing code base. Explore and implement new concepts, patterns, or libraries that have not been explicitly taught while at Turing and practice an advanced, professional git workflow.
+
+FE:  
+- [Jordy Shyrock ](https://github.com/jordy1611)  
+- [LinkedIn ](https://www.linkedin.com/in/jordan-shryock-6a48b9113/)  
+- [Linus Leas ](https://github.com/Leasw144)  
+- [LinkedIn ](https://www.linkedin.com/in/wattana-leas-9a54a0119/)  
+- [Tyler Haglund](https://github.com/relyt4me)  
+- [LinkedIn ](https://www.linkedin.com/in/tyler-haglund/)  
+
+BE:  
+- [Neeru Ram](https://github.com/neeruram1)
+- [LinkedIn](https://www.linkedin.com/in/neeru-ram-81a2b867/)
+- [Lito White](https://github.com/neeruram1)
+- [LinkedIn](https://www.linkedin.com/in/neeru-ram-81a2b867/)
+- [Jane Greene](https://github.com/neeruram1)
+- [LinkedIn](https://www.linkedin.com/in/neeru-ram-81a2b867/)
+
+
+For the front end students, this was their first time using Redux, axios, express, and GraphQL, and for the back end students this was this was their first time using JavaScript, Node.js, express, Sequelize, and GraphQL. This is also the first cross-pollination project for all students involved and an Agile workflow was used to ensure a high level of code-quality and communication. The project was tracked using Github Projects.
+
+## Project Structure
+<p align="center">
+<img src="https://i.imgur.com/p2INrLf.jpg">
+</p>
+## Queries
+<p align="center">
+<img src="https://i.imgur.com/ngUBDY6.png">
+</p>
+## Mutations
+<p align="center">
+<img src="https://i.imgur.com/TeBLMJo.png">
+</p>
 #### Get monthly subscription of trendy clothes and accessories.
 - **API** built with Node, GraphQL, Express, Sequelize (MySQL) and JWT Auth
 - **WebApp** built with React and Redux along with Server Side Rendering (SSR) / SEO friendly
 - **Mobile** (Android and iOS) Native App build with React Native
 - Written in ES6+ using Babel + Webpack
 - Designed using Adobe Experience Design. Preview it [here](https://xd.adobe.com/view/a662a49f-57e7-4ffd-91bd-080b150b0317/).
-
 
 ## Features
 - Modular and easily scalable code structure
@@ -21,7 +54,7 @@
 - File upload feature with GraphQL
 - React storybook demonstrating UI components for web
 - Server side rendering
-- Multi-package setup and dev scripts for an automated dev experiance
+- Multi-package setup and dev scripts for an automated dev experience
 
 
 ## Useful for
@@ -108,7 +141,7 @@ Click on image to view fullscreen and zoom
 - Setup
   - API: Install packages and database setup (migrations and seed) `cd api` and `npm run setup`
   - Webapp: Install packages `cd web` and `npm install`
-  - Mobile: 
+  - Mobile:
     1. Install packages `cd mobile` and `npm install`
     2. Install iOS dependencies `cd mobile/ios` `pod install`
 - Development
@@ -147,7 +180,7 @@ Click on image to view fullscreen and zoom
 
 ## Why open source a project and not a boilerplate or framework?
 - While building a new project with Node, you can basically start scratch, adding libraries and tools as you go on building it further.
-- Comparing with any other languague, you usually start with a framework, for example, Laravel (PHP), Django (Python) or Ruby on Rails (Ruby) which includes a ton of features and codebase which you never end up using.
+- Comparing with any other language, you usually start with a framework, for example, Laravel (PHP), Django (Python) or Ruby on Rails (Ruby) which includes a ton of features and codebase which you never end up using.
 - I've personally found, learning by going through a good project codebase step by step while building your own project helps in ease of understanding and remembering
 
 
