@@ -53,7 +53,6 @@ export const survey = (state = surveyInitialState, action) => {
     case SURVEY_SELECT_IMAGE:
       let newUserChoices = state.userChoices
       newUserChoices[action.category] = action.style
-      console.log('is this happening', newUserChoices)
       return {
         ...state,
         isLoading: false,

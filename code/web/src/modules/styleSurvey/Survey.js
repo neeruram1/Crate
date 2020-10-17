@@ -38,7 +38,7 @@ class Survey extends Component {
   // // Runs on client only
   componentDidMount() {
     this.props.getSurveyImages()
-    console.log('response', this.props.getSurveyImages())
+    
   }
 
   organizeCategories() {
