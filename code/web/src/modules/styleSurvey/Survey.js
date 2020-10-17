@@ -25,6 +25,12 @@ import { getSurveyImages } from './api/actions'
 
 // Component
 class Survey extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      completed: false
+    }
+  }
 
   // Runs on server only for SSR
   static fetchData({ store }) {
@@ -71,11 +77,49 @@ class Survey extends Component {
       )
     })
     }
+  }
 
+  sortChoices(choicesObject) {
+  let styles = Object.values(choicesObject).reduce((counter, choice) => {
+    if (!counter[choice]) {
+      counter[choice] = 1
+    } else {
+      counter[choice]++
+    }
+    return counter
+  }, {})
+  return styles
+}
+
+  determineResults(choicesObject) {
+    let userChoices = this.sortChoices(choicesObject)
+    const highestVote = Math.max(...Object.values(userChoices))
+    const topPicks = Object.keys(userChoices).filter(choice => {
+      return userChoices[choice] === highestVote
+    })
+    // this.props.history.push(userRoutes.subscriptions.path)
+    return (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
+  }
+
+  checkInputs() {
+    
+    return Object.values(this.props.userChoices).every(choice => choice !== '')
+  }
+
+  completeSurvey() {
+    if(checkInputs()) {
+
+      this.setState({ completed: true })
+    } else {
+      return false
+    }
   }
 
   render() {
     let renderedCategories = this.renderCategories()
+    let checkedInputs = this.checkInputs()
+    const result = this.determineResults(this.props.userChoices)
+    console.log('checkInputs', checkedInputs)
     console.log('rendered', renderedCategories)
     return (
       <div>
@@ -89,59 +133,25 @@ class Survey extends Component {
         </Grid>
         <Grid>
           {renderedCategories}
-          {/* <GridCell
-            gutter={true}
-            style={{
-              width: 'auto'
-            }}
-          >
-            <Category />
-          </GridCell>
-          <GridCell
-            gutter={true}
-            style={{
-              width: 'auto'
-            }}
-          >
-            <Category />
-          </GridCell>
-          <GridCell
-            gutter={true}
-            style={{
-              width: 'auto'
-            }}
-          >
-            <Category />
-          </GridCell>
-          <GridCell
-            gutter={true}
-            style={{
-              width: 'auto'
-            }}
-          >
-            <Category />
-          </GridCell>
-          <GridCell
-            gutter={true}
-            style={{
-              width: 'auto'
-            }}
-          >
-            <Category />
-          </GridCell>
-          <GridCell
-            gutter={true}
-            style={{
-              width: 'auto'
-            }}
-          >
-            <Category />
-          </GridCell> */}
+        
         </Grid>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
-            <Button theme="primary" onClick={() => { this.props.history.push(userRoutes.subscriptions.path) }}>Submit</Button>
-            <H3 style={{ marginTop: '1em', color: grey2 }}>You are an Ol Timey Baseball Player</H3>
+            {!this.state.completed ? 
+              <Button theme="primary"
+              onClick={() => { this.setState({ completed: true }) }}>Submit
+              </Button>
+              :
+              <div>
+                <Button theme="primary" 
+                onClick={() => { determineResults(this.props.userChoices)  }}>Finish
+                </Button>
+                <H3 style={{ marginTop: '1em', color: grey2 }}>{result} you bumbpkin!</H3>
+
+              </div>
+            }
+            
+            
           </GridCell>
         </Grid>
       </div>
