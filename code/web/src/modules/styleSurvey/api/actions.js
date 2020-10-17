@@ -46,21 +46,43 @@ export function getSurveyImages(isLoading = true) {
 }
 
 export function selectImage(category, style) {
-  return dispatch => {
-    dispatch({
-      type: SURVEY_SELECT_IMAGE,
-      category: category,
-      style: style
-    })
-  }
+	return dispatch => {
+		dispatch({
+			type: SURVEY_SELECT_IMAGE,
+			category: category,
+			style: style
+		})
+	}
 }
 
 export function postUserStyle(userInfo) {
-  return dispatch => {
-    return axios.post(routeApi, mutation({
-      operation: 'updateStyle',
-      variables: userInfo,
-      fields: ['id', 'style']
-    }))
-  }
+	console.log("postUserStyle -> userInfo", userInfo)
+	return axios.post(routeApi, mutation({
+		operation: 'updateStyle',
+		variables: userInfo,
+		fields: ['id', 'style']
+	}))
+		.catch(error => {
+			console.error(error)
+		})
 }
+
+// .then(response => {
+// 	if (response.status === 200) {
+// 		dispatch({
+// 			type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
+// 			error: null,
+// 			isLoading: false,
+// 			surveyImages: response.data.data.surveyImages
+// 		})
+// 	} else {
+// 		console.error(response)
+// 	}
+// })
+// 	.catch(error => {
+// 		dispatch({
+// 			type: SURVEY_GET_SURVEY_ITEMS_FAILURE,
+// 			error: 'Some error occurred. Please try again.',
+// 			isLoading: false
+// 		})
+// 	})
