@@ -38,7 +38,6 @@ class Survey extends Component {
   // // Runs on client only
   componentDidMount() {
     this.props.getSurveyImages()
-    console.log('response', this.props.getSurveyImages())
   }
 
   organizeCategories() {
@@ -88,7 +87,6 @@ class Survey extends Component {
   }, {})
   return styles
 }
-
   determineResults(choicesObject) {
     let userChoices = this.sortChoices(choicesObject)
     const highestVote = Math.max(...Object.values(userChoices))
@@ -109,7 +107,7 @@ class Survey extends Component {
   completeSurvey = (result) => {
     if(this.checkInputs()) {
       this.setState({ completed: true })
-      
+
     }
   }
 
@@ -165,6 +163,7 @@ Survey.propTypes = {
   surveyImages: PropTypes.array.isRequired,
   userChoices: PropTypes.object.isRequired
 }
+
 
 // Component State
 function listState(state) {
