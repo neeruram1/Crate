@@ -1,8 +1,7 @@
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
-import { level1, level2, level3, level4, level5 } from '../../ui/common/shadows'
-import { grey, grey2, grey3, grey4, secondary, white } from '../../ui/common/colors'
+import { level3 } from '../../ui/common/shadows'
 import { APP_URL_API } from '../../setup/config/env'
 import { selectImage } from './api/actions'
 import { connect } from 'react-redux'
@@ -25,7 +24,6 @@ const CategoryImage = (props) => {
       }}
       onClick={() => {
         props.selectImage(category, style)
-        console.log('props.userChoices[category]', props.userChoices[category], 'style', style)
       }}
     >
     </img>
@@ -34,17 +32,14 @@ const CategoryImage = (props) => {
 
 // Component Properties
 CategoryImage.propTypes = {
-  image: PropTypes.string.isRequired,
-  style: PropTypes.object,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  shadow: PropTypes.string
+  selectedImage: PropTypes.func,
+  image: PropTypes.object
 }
-// CategoryImage.defaultProps = {
-//   style: {},
-//   width: '20em',
-//   height: '20em'
-// }
+CategoryImage.defaultProps = {
+  style: {},
+  width: '20em',
+  height: '20em'
+}
 
 // Component State
 

@@ -24,7 +24,6 @@ export function getSurveyImages(isLoading = true) {
 			fields: ['altText', 'style', 'image', 'category']
 		}))
 			.then(response => {
-        console.log('repsoonse', response)
 				if (response.status === 200) {
 					dispatch({
 						type: SURVEY_GET_SURVEY_ITEMS_RESPONSE,
