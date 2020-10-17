@@ -10,19 +10,22 @@ import { connect } from 'react-redux'
 // Component
 const CategoryImage = (props) => {
   const { image, category, style } = props.image
-  const boxBorder = (true === true) ? 'none' : `.7em solid ${grey4}`
+
   return (
     <img
-      src={ `${APP_URL_API}${image}`}
+      src={`${APP_URL_API}${image}`}
       style={{
-        width: '15em',
+        minWidth: '10em',
+        maxWidth: '15em',
+        minHeight: '10em',
+        maxHeight: '15em',
         boxShadow: `${level3}`,
-        border: `${boxBorder}`,
-        borderRadius: '.2em',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        margin: '.5em 2em'
       }}
       onClick={() => {
         props.selectImage(category, style)
+        console.log('props.userChoices[category]', props.userChoices[category], 'style', style)
       }}
     >
     </img>
@@ -30,13 +33,13 @@ const CategoryImage = (props) => {
 }
 
 // Component Properties
-// CategoryImage.propTypes = {
-//   image: PropTypes.string.isRequired,
-//   style: PropTypes.object,
-//   width: PropTypes.number,
-//   height: PropTypes.number,
-//   shadow: PropTypes.string
-// }
+CategoryImage.propTypes = {
+  image: PropTypes.string.isRequired,
+  style: PropTypes.object,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  shadow: PropTypes.string
+}
 // CategoryImage.defaultProps = {
 //   style: {},
 //   width: '20em',

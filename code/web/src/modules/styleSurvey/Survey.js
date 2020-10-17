@@ -23,7 +23,7 @@ import { getSurveyImages, postUserStyle } from './api/actions'
 
 // Component
 class Survey extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       completed: false
@@ -42,8 +42,8 @@ class Survey extends Component {
 
   organizeCategories() {
     let organizedCategories;
-    if(this.props.surveyImages[1]) {
-      organizedCategories = this.props.surveyImages.reduce((categories, image) => { 
+    if (this.props.surveyImages[1]) {
+      organizedCategories = this.props.surveyImages.reduce((categories, image) => {
         if (!categories[image.category]) {
           categories[image.category] = [image]
         } else {
@@ -52,51 +52,48 @@ class Survey extends Component {
         return categories
       }, {})
       organizedCategories = Object.values(organizedCategories).filter(category => category.length === 6)
-   
-    } 
+
+    }
     return organizedCategories
   }
 
   renderCategories() {
     const organizedCategories = this.organizeCategories()
-    console.log('derp', organizedCategories)
-    if(organizedCategories) {
+    if (organizedCategories) {
       return organizedCategories.map(category => {
         return (
           <GridCell
             gutter={true}
             style={{
-            width: 'auto'
-          }}
+              width: 'auto'
+            }}
           >
-          <Category surveyImages={category} />
-        </GridCell>
+            <Category surveyImages={category} />
+          </GridCell>
         )
       })
     }
   }
 
   sortChoices(choicesObject) {
-  let styles = Object.values(choicesObject).reduce((counter, choice) => {
-    if (!counter[choice]) {
-      counter[choice] = 1
-    } else {
-      counter[choice]++
-    }
-    return counter
-  }, {})
-  return styles
-}
+    let styles = Object.values(choicesObject).reduce((counter, choice) => {
+      if (!counter[choice]) {
+        counter[choice] = 1
+      } else {
+        counter[choice]++
+      }
+      return counter
+    }, {})
+    return styles
+  }
+
   determineResults(choicesObject) {
     let userChoices = this.sortChoices(choicesObject)
     const highestVote = Math.max(...Object.values(userChoices))
     const topPicks = Object.keys(userChoices).filter(choice => {
       return userChoices[choice] === highestVote
     })
-    const result = (topPicks.length === 1) ? topPicks[0] : 'ol timey baseball player'
-    console.log('result1', result)
-    console.log('result2', { id: this.props.user.details.id, style: result })
-    postUserStyle({ id: this.props.user.details.id, style: result })
+    const result = (topPicks.length === 1) ? topPicks[0] : 'Ol Timey Baseball Player'
     return result
   }
 
@@ -105,7 +102,7 @@ class Survey extends Component {
   }
 
   completeSurvey = (result) => {
-    if(this.checkInputs()) {
+    if (this.checkInputs()) {
       this.setState({ completed: true })
 
     }
@@ -115,8 +112,7 @@ class Survey extends Component {
     let renderedCategories = this.renderCategories()
     let checkedInputs = this.checkInputs()
     const result = this.determineResults(this.props.userChoices)
-  
-    console.log('rendered', renderedCategories)
+
     return (
       <div>
 
@@ -132,19 +128,24 @@ class Survey extends Component {
         </Grid>
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '3em', textAlign: 'center' }}>
-            {!this.state.completed ? 
+            {!this.state.completed ?
               <Button theme="primary"
-              onClick={() => this.completeSurvey(result)}>Submit
+                onClick={() => {
+                  this.completeSurvey(result)
+                }}>Submit
               </Button>
               :
               <div>
-                <Button theme="primary" 
-                  onClick={() => { this.props.history.push(userRoutes.subscriptions.path)  }}>Finish
+                <Button theme="primary"
+                  onClick={() => {
+                    this.props.history.push(userRoutes.subscriptions.path)
+                    postUserStyle({ id: this.props.user.details.id, style: result })
+                  }}>Finish
                 </Button>
-                <H3 
-                  style={{ 
-                    marginTop: '1em', 
-                    color: grey2 
+                <H3
+                  style={{
+                    marginTop: '1em',
+                    color: grey2
                   }}
                 >
                   Your style was {result}!!!
@@ -153,7 +154,7 @@ class Survey extends Component {
             }
           </GridCell>
         </Grid>
-      </div>
+      </div >
     )
   }
 }

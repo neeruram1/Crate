@@ -47,21 +47,22 @@ export function getSurveyImages(isLoading = true) {
 }
 
 export function selectImage(category, style) {
-  return dispatch => {
-    dispatch({
-      type: SURVEY_SELECT_IMAGE,
-      category: category,
-      style: style
-    })
-  }
+	return dispatch => {
+		dispatch({
+			type: SURVEY_SELECT_IMAGE,
+			category: category,
+			style: style
+		})
+	}
 }
 
 export function postUserStyle(userInfo) {
-  return dispatch => {
-    return axios.post(routeApi, mutation({
-      operation: 'updateStyle',
-      variables: userInfo,
-      fields: ['id', 'style']
-    }))
-  }
+	return axios.post(routeApi, mutation({
+		operation: 'updateStyle',
+		variables: userInfo,
+		fields: ['id', 'style']
+	}))
+		.catch(error => {
+			console.error(error)
+		})
 }
